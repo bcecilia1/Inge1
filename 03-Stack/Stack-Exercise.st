@@ -139,93 +139,104 @@ test10CanNotTopWhenThereAreNoObjectsInTheStack
 
 !classDefinition: #SentenceFinderByPrefixTest category: 'Stack-Exercise'!
 TestCase subclass: #SentenceFinderByPrefixTest
-	instanceVariableNames: ''
+	instanceVariableNames: 'sentenceStack sentenceToFind'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 22:14:45'!
+!SentenceFinderByPrefixTest methodsFor: 'tests' stamp: 'm 4/23/2023 12:41:49'!
 test01FindOnlyOneSentenceWithPrefix
 
-"	| stack pushedObject |
+	|correctSentenceToBeFound|
 	
-	stack := OOStack new.
-	pushedObject := 'something'.
+	correctSentenceToBeFound := OrderedCollection new.
+	correctSentenceToBeFound add: 'never give up'.	
 	
-	stack push: pushedObject.
-	
-	self assert: stack top = pushedObject."! !
+	self assert: correctSentenceToBeFound equals: (sentenceToFind findSentencesByPrefix: 'never').! !
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 22:15:29'!
-test02FindMoreThanOneSentencesWithPrefix
+!SentenceFinderByPrefixTest methodsFor: 'tests' stamp: 'm 4/23/2023 12:42:55'!
+test02FindSentencesWithPrefixInCorrectOrder
 
-"	| stack pushedObject |
+	|correctSentencesToBeFound|
 	
-	stack := OOStack new.
-	pushedObject := 'something'.
+	correctSentencesToBeFound := OrderedCollection new.
+	correctSentencesToBeFound add: 'the winter is coming'.
+	correctSentencesToBeFound add: 'the summer is coming'.
 	
-	stack push: pushedObject.
 	
-	self assert: stack top = pushedObject."! !
+	self assert: correctSentencesToBeFound equals: (sentenceToFind findSentencesByPrefix: 'the').! !
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 22:16:13'!
+!SentenceFinderByPrefixTest methodsFor: 'tests' stamp: 'm 4/23/2023 12:43:26'!
 test03NoSentencesWithPrefix
 
-"	| stack pushedObject |
+	|correctSentencesToBeFound|
 	
-	stack := OOStack new.
-	pushedObject := 'something'.
+	correctSentencesToBeFound := OrderedCollection new.
 	
-	stack push: pushedObject.
-	
-	self assert: stack top = pushedObject."! !
+	self assert: correctSentencesToBeFound equals: (sentenceToFind findSentencesByPrefix: 'a').! !
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 22:17:29'!
+!SentenceFinderByPrefixTest methodsFor: 'tests' stamp: 'm 4/23/2023 12:46:08'!
 test04SentenceWithLowerCaseAndPrefixWithUpperCase
 
-"	| stack pushedObject |
+	|correctSentencesToBeFound|
 	
-	stack := OOStack new.
-	pushedObject := 'something'.
+	correctSentencesToBeFound := OrderedCollection new.
 	
-	stack push: pushedObject.
-	
-	self assert: stack top = pushedObject."! !
+	self assert: correctSentencesToBeFound equals: (sentenceToFind findSentencesByPrefix: 'Nev')! !
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 22:17:43'!
+!SentenceFinderByPrefixTest methodsFor: 'tests' stamp: 'm 4/23/2023 12:46:41'!
 test05SentenceWithUpperCaseAndPrefixWithLowerCase
 
-"	| stack pushedObject |
-	
-	stack := OOStack new.
-	pushedObject := 'something'.
-	
-	stack push: pushedObject.
-	
-	self assert: stack top = pushedObject."! !
 
-!SentenceFinderByPrefixTest methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 22:52:46'!
-test06FindSentencesWithPrefixInCorrectOrder
+	|correctSentencesToBeFound|
+	
+	correctSentencesToBeFound := OrderedCollection new.
+	
+	self assert: correctSentencesToBeFound equals: (sentenceToFind findSentencesByPrefix: 'calculate')! !
 
-	| stack pushedObject0 pushedObject1 pushedObject2 stack1 sentencesToFind| 
+!SentenceFinderByPrefixTest methodsFor: 'tests' stamp: 'm 4/23/2023 12:47:37'!
+test06SentenceStackDoesNotChangeAfterSentenceFinderOperation
 	
-	stack := OOStack new.
-	pushedObject0 := 'the winter is coming'.
-	pushedObject1 := 'the summer is coming'.
-	pushedObject2 := 'never give up'.
-	stack push: pushedObject0.
-	stack push: pushedObject1.
-	stack push: pushedObject2.
+	sentenceToFind findSentencesByPrefix: 'the'.
 	
-	sentencesToFind := SentenceFinderByPrefix with: stack.
+	self assert:sentenceStack isEmpty equals: false.! !
+
+!SentenceFinderByPrefixTest methodsFor: 'tests' stamp: 'm 4/23/2023 12:51:02'!
+test07PrefixShouldNotContainWhitespace
+
+	self 
+		should: [ sentenceToFind findSentencesByPrefix: 't he']
+		raise: Error
+		withExceptionDo: [ :anError | self assert: anError messageText equals: SentenceFinderByPrefix prefixCannotContainWhitespace ]! !
+
+!SentenceFinderByPrefixTest methodsFor: 'tests' stamp: 'm 4/23/2023 13:40:43'!
+test08PrefixShouldNotBeEmpty
+
+	self 
+		should: [ sentenceToFind findSentencesByPrefix: '']
+		raise: Error
+		withExceptionDo: [ :anError | self assert: anError messageText equals: SentenceFinderByPrefix prefixCannotBeEmpty ]! !
+
+
+!SentenceFinderByPrefixTest methodsFor: 'set up' stamp: 'm 4/23/2023 12:47:01'!
+setUp
+	| firstSentence secondSentence thirdSentence forthSentence| 
 	
-	stack1 := OOStack new.
-	stack1 push: pushedObject0.
-	stack1 push: pushedObject1.
+	sentenceStack := OOStack new.
 	
+	firstSentence := 'the winter is coming'.
+	secondSentence := 'the summer is coming'.
+	thirdSentence := 'never give up'.
+	forthSentence := 'Calculate the derivative'.
 	
+	sentenceStack push: firstSentence.
+	sentenceStack push: secondSentence.
+	sentenceStack push: thirdSentence.
+	sentenceStack push: forthSentence.
 	
-	self assert: stack1 equals: (sentencesToFind findSentencesByPrefix: 'the').! !
+	sentenceToFind := SentenceFinderByPrefix with: sentenceStack
+	
+	! !
 
 
 !classDefinition: #OOStack category: 'Stack-Exercise'!
@@ -235,52 +246,61 @@ Object subclass: #OOStack
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 21:07:24'!
+!OOStack methodsFor: 'operations - private' stamp: 'CB 4/22/2023 20:05:41'!
+popEmptyStack
+        ^self error: self class stackEmptyErrorDescription.! !
+
+!OOStack methodsFor: 'operations - private' stamp: 'm 4/23/2023 14:38:15'!
+popNotEmptyStack
+
+         |tamañoProximoStack|
+
+         tamañoProximoStack := self size - 1.
+         stackStatus := OOStackStatus with:tamañoProximoStack.
+
+        ^values removeLast.! !
+
+!OOStack methodsFor: 'operations - private' stamp: 'm 4/23/2023 14:38:23'!
+topEmptyStack
+
+	^self error: self class stackEmptyErrorDescription.! !
+
+!OOStack methodsFor: 'operations - private' stamp: 'm 4/23/2023 14:39:03'!
+topNotEmptyStack
+	
+	^values at: self size! !
+
+
+!OOStack methodsFor: 'initialization' stamp: 'm 4/23/2023 14:39:35'!
 initialize
 	values := OrderedCollection new.
-	stackStatus := OOStackStatus with: values size. ! !
+	stackStatus := OOStackStatus with: self size.! !
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:19:54'!
-isEmpty
-	^stackStatus isEmpty.! !
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:29:26'!
+!OOStack methodsFor: 'operations' stamp: 'CB 4/22/2023 20:29:26'!
 pop
         ^stackStatus checkingMyStackStatusTryingToPop: self.
 	! !
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:05:41'!
-popEmptyStack
-        ^self error: self class stackEmptyErrorDescription.! !
-
-!OOStack methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 21:00:00'!
-popNotEmptyStack
-         |tamañoProximoStack|
-         tamañoProximoStack := self size - 1.
-         stackStatus := OOStackStatus with:tamañoProximoStack.
-        ^values removeLast.! !
-
-!OOStack methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 21:08:08'!
+!OOStack methodsFor: 'operations' stamp: 'm 4/23/2023 14:41:23'!
 push: aPhraseToAdd
-	stackStatus := OOStackStatus with: (self size + 1).
-	values add: aPhraseToAdd 
-	! !
+	
+	values add: aPhraseToAdd.
+	stackStatus := OOStackStatus with: (self size).! !
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:22:39'!
-size
-	^values size! !
-
-!OOStack methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:27:20'!
+!OOStack methodsFor: 'operations' stamp: 'CB 4/22/2023 20:27:20'!
 top
 	^stackStatus checkingMyStackStatusTryingToTop: self. ! !
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:24:25'!
-topEmptyStack
-	^self error: self class stackEmptyErrorDescription.! !
 
-!OOStack methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:32:19'!
-topNotEmptyStack
-	^values at: values size! !
+!OOStack methodsFor: 'testing' stamp: 'CB 4/22/2023 20:19:54'!
+isEmpty
+	^stackStatus isEmpty.! !
+
+
+!OOStack methodsFor: 'accessing' stamp: 'CB 4/22/2023 20:22:39'!
+size
+	^values size! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -305,11 +325,7 @@ Object subclass: #OOStackStatus
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!OOStackStatus methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:00:59'!
-checkingMyStackStatus: aStackToCheck
-     self subclassResponsibility.! !
-
-!OOStackStatus methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:20:46'!
+!OOStackStatus methodsFor: 'testing' stamp: 'CB 4/22/2023 20:20:46'!
 isEmpty
      self subclassResponsibility.! !
 
@@ -319,11 +335,11 @@ isEmpty
 OOStackStatus class
 	instanceVariableNames: ''!
 
-!OOStackStatus class methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:44:07'!
+!OOStackStatus class methodsFor: 'instance creation' stamp: 'CB 4/22/2023 20:44:07'!
 canHandle: size
         self subclassResponsibility ! !
 
-!OOStackStatus class methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 21:04:53'!
+!OOStackStatus class methodsFor: 'instance creation' stamp: 'CB 4/22/2023 21:04:53'!
 with: aValue
        ^(OOStackStatus allSubclasses detect:[:aClass | aClass canHandle: aValue]) new.! !
 
@@ -335,15 +351,15 @@ OOStackStatus subclass: #NoVacio
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!NoVacio methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:29:54'!
+!NoVacio methodsFor: 'testing' stamp: 'CB 4/22/2023 20:29:54'!
 checkingMyStackStatusTryingToPop: aStackToCheck
     ^aStackToCheck popNotEmptyStack.! !
 
-!NoVacio methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:31:32'!
+!NoVacio methodsFor: 'testing' stamp: 'CB 4/22/2023 20:31:32'!
 checkingMyStackStatusTryingToTop: aStackToCheck
     ^aStackToCheck topNotEmptyStack.! !
 
-!NoVacio methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:19:17'!
+!NoVacio methodsFor: 'testing' stamp: 'CB 4/22/2023 20:19:17'!
 isEmpty
     ^false.! !
 
@@ -365,15 +381,15 @@ OOStackStatus subclass: #Vacio
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!Vacio methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:28:04'!
+!Vacio methodsFor: 'testing' stamp: 'CB 4/22/2023 20:28:04'!
 checkingMyStackStatusTryingToPop:  aStackToCheck
     ^aStackToCheck popEmptyStack! !
 
-!Vacio methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:27:51'!
+!Vacio methodsFor: 'testing' stamp: 'CB 4/22/2023 20:27:51'!
 checkingMyStackStatusTryingToTop:  aStackToCheck
     ^aStackToCheck topEmptyStack! !
 
-!Vacio methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 20:20:22'!
+!Vacio methodsFor: 'testing' stamp: 'CB 4/22/2023 20:20:22'!
 isEmpty
     ^true! !
 
@@ -388,33 +404,189 @@ canHandle: aValue
        ^aValue = 0.! !
 
 
-!classDefinition: #SentenceFinderByPrefix category: 'Stack-Exercise'!
-Object subclass: #SentenceFinderByPrefix
-	instanceVariableNames: 'sentences encontradas'
+!classDefinition: #Prefix category: 'Stack-Exercise'!
+Object subclass: #Prefix
+	instanceVariableNames: 'prefixValue'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 22:53:45'!
-findNextSentenceByPrefix: aPrefix inNext: aSentenceStack
-           |lastSentence|  
-           sentences isEmpty ifTrue:[^encontradas].
+!Prefix methodsFor: 'testing' stamp: 'm 4/23/2023 13:09:26'!
+checkingIfPrefixIsValidForSentenceFinder: aSentenceFinder
+	self subclassResponsibility ! !
 
-           lastSentence := sentences top.
-           sentences pop. 
-           (lastSentence beginsWith: aPrefix) ifTrue: [encontradas push: lastSentence].
-            
-           ^self findNextSentenceByPrefix: aPrefix inNext: sentences.! !
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 22:46:38'!
-findSentencesByPrefix: aPrefix
-          
-           ^self findNextSentenceByPrefix: aPrefix inNext: sentences! !
+!Prefix methodsFor: 'initialization' stamp: 'm 4/23/2023 15:15:37'!
+initializeWith: aPrefix
+	prefixValue := aPrefix! !
 
-!SentenceFinderByPrefix methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 22:41:49'!
+
+!Prefix methodsFor: 'accessing' stamp: 'm 4/23/2023 15:18:13'!
+value
+	^prefixValue ! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'Prefix class' category: 'Stack-Exercise'!
+Prefix class
+	instanceVariableNames: ''!
+
+!Prefix class methodsFor: 'instance creation' stamp: 'm 4/23/2023 13:22:12'!
+canHandle: aPrefix 
+	self subclassResponsibility 
+! !
+
+!Prefix class methodsFor: 'instance creation' stamp: 'm 4/23/2023 13:49:06'!
+for: aPrefix
+	^self new initializeWith: aPrefix! !
+
+!Prefix class methodsFor: 'instance creation' stamp: 'm 4/23/2023 13:44:44'!
+with: aPrefix
+	^(Prefix allSubclasses  detect:[:aClass | aClass canHandle: aPrefix]) for: aPrefix! !
+
+
+!classDefinition: #PrefijoNoVacio category: 'Stack-Exercise'!
+Prefix subclass: #PrefijoNoVacio
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!PrefijoNoVacio methodsFor: 'testing' stamp: 'm 4/23/2023 13:09:48'!
+checkingIfPrefixIsValidForSentenceFinder: aSentenceFinder
+	self subclassResponsibility ! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'PrefijoNoVacio class' category: 'Stack-Exercise'!
+PrefijoNoVacio class
+	instanceVariableNames: ''!
+
+!PrefijoNoVacio class methodsFor: 'instance creation' stamp: 'm 4/23/2023 13:37:10'!
+canHandle: aPrefix 
+	^false 
+! !
+
+
+!classDefinition: #ConEspacio category: 'Stack-Exercise'!
+PrefijoNoVacio subclass: #ConEspacio
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!ConEspacio methodsFor: 'testing' stamp: 'm 4/23/2023 13:10:45'!
+checkingIfPrefixIsValidForSentenceFinder: aSentenceFinder
+	^aSentenceFinder invalidPrefixWithWhitespace.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'ConEspacio class' category: 'Stack-Exercise'!
+ConEspacio class
+	instanceVariableNames: ''!
+
+!ConEspacio class methodsFor: 'instance creation' stamp: 'm 4/23/2023 13:27:54'!
+canHandle: aPrefix 
+	^aPrefix includesSubString: ' '
+! !
+
+
+!classDefinition: #SinEspacio category: 'Stack-Exercise'!
+PrefijoNoVacio subclass: #SinEspacio
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!SinEspacio methodsFor: 'testing' stamp: 'm 4/23/2023 15:17:49'!
+checkingIfPrefixIsValidForSentenceFinder: aSentenceFinder
+	^aSentenceFinder validPrefix: self value.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'SinEspacio class' category: 'Stack-Exercise'!
+SinEspacio class
+	instanceVariableNames: ''!
+
+!SinEspacio class methodsFor: 'instance creation' stamp: 'm 4/23/2023 13:29:42'!
+canHandle: aPrefix 
+	^(aPrefix includesSubString: ' ') not 
+! !
+
+
+!classDefinition: #PrefijoVacio category: 'Stack-Exercise'!
+Prefix subclass: #PrefijoVacio
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!PrefijoVacio methodsFor: 'testing' stamp: 'm 4/23/2023 13:13:33'!
+checkingIfPrefixIsValidForSentenceFinder: aSentenceFinder
+	^aSentenceFinder invalidEmptyPrefix ! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'PrefijoVacio class' category: 'Stack-Exercise'!
+PrefijoVacio class
+	instanceVariableNames: ''!
+
+!PrefijoVacio class methodsFor: 'instance creation' stamp: 'm 4/23/2023 13:24:11'!
+canHandle: aPrefix 
+	^aPrefix isEmpty ! !
+
+
+!classDefinition: #SentenceFinderByPrefix category: 'Stack-Exercise'!
+Object subclass: #SentenceFinderByPrefix
+	instanceVariableNames: 'sentences encontradas sentencesRevisadas'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Stack-Exercise'!
+
+!SentenceFinderByPrefix methodsFor: 'operations' stamp: 'm 4/23/2023 14:50:59'!
+findSentencesByPrefix: aStringPrefix
+	
+	^(Prefix with: aStringPrefix) checkingIfPrefixIsValidForSentenceFinder: self.
+	! !
+
+
+!SentenceFinderByPrefix methodsFor: 'initialization' stamp: 'm 4/23/2023 14:49:21'!
 initializeWith: sentenceStack
+
         sentences := sentenceStack. 
-        encontradas := OOStack new.! !
+        encontradas := OrderedCollection new.
+	sentencesRevisadas := OrderedCollection new. ! !
+
+
+!SentenceFinderByPrefix methodsFor: 'operations - private' stamp: 'm 4/23/2023 15:06:55'!
+addRecursivelySentenceWithPrefix: aPrefix
+
+           |lastSentence|  
+
+           sentences isEmpty ifTrue:[^encontradas].
+	   lastSentence := sentences top.
+	   sentences pop.
+           (lastSentence beginsWith: aPrefix) ifTrue: [encontradas add: lastSentence].
+	   sentencesRevisadas add: lastSentence.            
+
+	   self addRecursivelySentenceWithPrefix: aPrefix
+	! !
+
+!SentenceFinderByPrefix methodsFor: 'operations - private' stamp: 'm 4/23/2023 13:12:46'!
+invalidEmptyPrefix
+	^ self error: self class prefixCannotBeEmpty! !
+
+!SentenceFinderByPrefix methodsFor: 'operations - private' stamp: 'm 4/23/2023 13:11:54'!
+invalidPrefixWithWhitespace
+	^self error: self class prefixCannotContainWhitespace! !
+
+!SentenceFinderByPrefix methodsFor: 'operations - private' stamp: 'm 4/23/2023 15:06:14'!
+validPrefix: aPrefix
+	
+	self addRecursivelySentenceWithPrefix: aPrefix.
+	sentencesRevisadas reverseDo: [:aSentence | sentences push:aSentence].
+	
+	^ encontradas reversed! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -422,6 +594,15 @@ initializeWith: sentenceStack
 SentenceFinderByPrefix class
 	instanceVariableNames: ''!
 
-!SentenceFinderByPrefix class methodsFor: 'as yet unclassified' stamp: 'CB 4/22/2023 22:39:04'!
+!SentenceFinderByPrefix class methodsFor: 'instance creation' stamp: 'CB 4/22/2023 22:39:04'!
 with: sentenceStack
        ^self new initializeWith: sentenceStack.! !
+
+
+!SentenceFinderByPrefix class methodsFor: 'error descriptions' stamp: 'm 4/23/2023 12:58:14'!
+prefixCannotBeEmpty
+	^'prefix cannot be empty'! !
+
+!SentenceFinderByPrefix class methodsFor: 'error descriptions' stamp: 'm 4/23/2023 12:51:55'!
+prefixCannotContainWhitespace
+	^'prefix cannot contain whitespace'! !
