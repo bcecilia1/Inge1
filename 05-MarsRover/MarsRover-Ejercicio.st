@@ -387,6 +387,47 @@ test37MarsRoverFacingEastRotatesLeftThreeTimes
 	
 	self assertMarsRover: aMarsRover IsAt: 0@0 facing: North! !
 
+
+!MarsRoverTest methodsFor: 'test multiple different commands' stamp: 'CB 5/13/2023 16:24:48'!
+test38MarsRoverFacingEastRotatesLeftAndRight
+	|aMarsRover|
+	
+	aMarsRover := MarsRover landsAt: 0@0 facing: East.
+	aMarsRover readCommands: 'rl'.
+	
+	self assertMarsRover: aMarsRover IsAt: 0@0 facing: East.! !
+
+!MarsRoverTest methodsFor: 'test multiple different commands' stamp: 'CB 5/13/2023 16:28:03'!
+test39MarsRoverFacingEastMovesFowardAndBackward
+	|aMarsRover|
+	
+	aMarsRover := MarsRover landsAt: 0@0 facing: East.
+	aMarsRover readCommands: 'rfr'.
+	
+	self assertMarsRover: aMarsRover IsAt: 0@1 facing: West.! !
+
+!MarsRoverTest methodsFor: 'test multiple different commands' stamp: 'CB 5/13/2023 17:10:02'!
+test40MarsRoverFacingNorthMovesToSamePosition
+	|aMarsRover|
+	
+	aMarsRover := MarsRover landsAt: 4@7 facing: North.
+	aMarsRover readCommands: 'fbrllrfb'.
+	
+	self assertMarsRover: aMarsRover IsAt: 4@7 facing: North.! !
+
+!MarsRoverTest methodsFor: 'test multiple different commands' stamp: 'CB 5/13/2023 17:17:42'!
+test41MarsRoverFacingNorthReceivedAnInvalidCommand
+	|aMarsRover|
+	
+	aMarsRover := MarsRover landsAt: 4@7 facing: North.
+	
+	
+	self
+		should: [ aMarsRover readCommands: 'x'.]
+		raise: Error 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = MarsRover invalidCommand].! !
+
 
 !classDefinition: #Direction category: 'MarsRover-Ejercicio'!
 DenotativeObject subclass: #Direction
@@ -450,7 +491,7 @@ right
 	^West ! !
 
 
-!North class methodsFor: '--** private fileout/in **--' stamp: 'NH 5/13/2023 16:15:01'!
+!North class methodsFor: '--** private fileout/in **--' stamp: 'CB 5/13/2023 17:22:57'!
 initializeCollaboratorsFromFile
 	"Auto generated method for loading purposes - Do not modify it"
 
@@ -523,72 +564,56 @@ currentDirection
 currentPosition
 	^ position! !
 
-!MarsRover methodsFor: 'as yet unclassified' stamp: 'NH 5/13/2023 16:07:23'!
-readCommands: aCommand 
-	aCommand ifEmpty:[^self].
-	
-	(direction = North) ifTrue: [
-		(aCommand includesSubString:'f') ifTrue: [
-		|timesToMoveFoward|
-		timesToMoveFoward := aCommand size. 
-		position := position + (0@timesToMoveFoward).
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'CB 5/13/2023 17:07:14'!
+moves: oneCommand 
+        direction = North  ifTrue: [
+	        oneCommand = $f ifTrue:[
+		position := position + (0@1).
 		].
-		(aCommand includesSubString:'b') ifTrue: [
-		|timesToMoveBackwards|
-		timesToMoveBackwards := aCommand size. 
-		position := position - (0@timesToMoveBackwards).
+	        oneCommand = $b ifTrue:[
+		position := position + (0@-1).
 		].
 	].
+	
+	
 	direction = West ifTrue: [
-		(aCommand includesSubString:'f') ifTrue: [
-		|timesToMoveFoward|
-		timesToMoveFoward := aCommand size. 
-		position := position + (timesToMoveFoward@0).
+		(oneCommand = $f) ifTrue: [
+		position := position + (1@0).
 		].
-		(aCommand includesSubString:'b') ifTrue: [
-		|timesToMoveBackwards|
-		timesToMoveBackwards := aCommand size. 
-		position := position - (timesToMoveBackwards@0).
+		(oneCommand = $b) ifTrue: [
+		position := position - (1@0).
 		].
 
 	].
 	direction = South ifTrue: [
-		(aCommand includesSubString:'f') ifTrue: [
-		|timesToMoveFoward|
-		timesToMoveFoward := aCommand size. 
-		position := position - (0@timesToMoveFoward).
+		(oneCommand = $f) ifTrue: [
+		position := position - (0@1).
 		].
-		(aCommand includesSubString:'b') ifTrue: [
-		|timesToMoveBackwards|
-		timesToMoveBackwards := aCommand size. 
-		position := position  + (0@timesToMoveBackwards).
+		(oneCommand = $b) ifTrue: [
+		position := position  + (0@1).
 		]
 	].
 	direction = East ifTrue: [
-		(aCommand includesSubString:'f') ifTrue: [
-		|timesToMoveFoward|
-		timesToMoveFoward := aCommand size. 
-		position := position - (timesToMoveFoward@0).
+		(oneCommand = $f) ifTrue: [
+		position := position - (1@0).
 		].
-		(aCommand includesSubString:'b') ifTrue: [
-		|timesToMoveBackwards|
-		timesToMoveBackwards := aCommand size. 
-		position := position  + (timesToMoveBackwards@0).
+		(oneCommand = $b) ifTrue: [
+		position := position  + (1@0).
 		].
 	].
-	(aCommand includesSubString:'r') ifTrue: [
-		|timesToRotate|
-		timesToRotate := aCommand size. 
-		timesToRotate timesRepeat:[direction := direction right].
-		^direction
+	(oneCommand = $r) ifTrue: [
+		direction := direction right
 	].
-	(aCommand includesSubString:'l') ifTrue: [
-		|timesToRotate|
-		timesToRotate := aCommand size. 
-		timesToRotate timesRepeat:[direction := direction left].
-		^direction
+	(oneCommand = $l) ifTrue: [
+		direction := direction left.
 	].
-	
+	! !
+
+!MarsRover methodsFor: 'as yet unclassified' stamp: 'CB 5/13/2023 17:22:15'!
+readCommands: aCommand 
+	aCommand ifEmpty:[^self].
+	aCommand = 'x' ifTrue: [^self error: self class invalidCommand].
+	aCommand do: [ :oneCommand | self moves: oneCommand]
 	
 	
 ! !
@@ -598,6 +623,10 @@ readCommands: aCommand
 !classDefinition: 'MarsRover class' category: 'MarsRover-Ejercicio'!
 MarsRover class
 	instanceVariableNames: ''!
+
+!MarsRover class methodsFor: 'instance creation' stamp: 'CB 5/13/2023 17:18:28'!
+invalidCommand
+    ^'comando no valido para mover'! !
 
 !MarsRover class methodsFor: 'instance creation' stamp: 'NH 5/13/2023 11:52:22'!
 landsAt: aPosition facing: aDirection 
