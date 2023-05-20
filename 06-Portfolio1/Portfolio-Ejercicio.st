@@ -48,7 +48,7 @@ test04AnEmptyPortfolioTransactions
          portfolio := Portfolio new. 	
          self assert: (OrderedCollection new) equals: portfolio transactions! !
 
-!PortfolioTest methodsFor: 'operations test' stamp: 'CB 5/18/2023 11:11:03'!
+!PortfolioTest methodsFor: 'operations test' stamp: 'N 5/20/2023 16:42:43'!
 test05APortfolioTransactionWithOneAccount
         
 	| portfolio anAccount  |
@@ -58,7 +58,7 @@ test05APortfolioTransactionWithOneAccount
 	portfolio := Portfolio new.
         	portfolio add: anAccount.
 
- 	 "para preguntar"
+
          self assert: (anAccount transactions) equals: portfolio transactions! !
 
 !PortfolioTest methodsFor: 'operations test' stamp: 'CB 5/18/2023 11:41:53'!
@@ -108,7 +108,7 @@ test08AnEmptyPortfolioHasRegisteredATransaction
 
          self assert: false equals: (portfolio hasRegistered: aTransaction).! !
 
-!PortfolioTest methodsFor: 'operations test' stamp: 'CB 5/18/2023 11:45:17'!
+!PortfolioTest methodsFor: 'operations test' stamp: 'N 5/20/2023 16:44:05'!
 test09PortfolioHasRegisteredATransactionWithOneAccount
         
 	| portfolio anAccount aTransaction|
@@ -118,11 +118,11 @@ test09PortfolioHasRegisteredATransactionWithOneAccount
 	 portfolio := Portfolio new.
         	portfolio add: anAccount.
 
- 	 "para preguntar"
+ 	
          self assert: (anAccount hasRegistered: aTransaction) equals: (portfolio hasRegistered: aTransaction)! !
 
 
-!PortfolioTest methodsFor: 'constructor test' stamp: 'CB 5/19/2023 16:59:38'!
+!PortfolioTest methodsFor: 'valid adding test' stamp: 'CB 5/19/2023 16:59:38'!
 test10CanNotAddSameAccountTwiceToAPortfolioWithOnlyOneAccount
         
 	| portfolio anAccount|
@@ -140,9 +140,16 @@ test10CanNotAddSameAccountTwiceToAPortfolioWithOnlyOneAccount
 		
         ! !
 
-!PortfolioTest methodsFor: 'constructor test' stamp: 'CB 5/19/2023 16:59:27'!
+!PortfolioTest methodsFor: 'valid adding test' stamp: 'N 5/20/2023 16:45:38'!
 test11CanNotAddSameAccountTwiceToAPortfolioWithAPortfolioWithThisAccount
-        
+        "
+			parentPortfolio  <- anAccount 
+			 | 
+			portfolio
+			 |
+			anAccount
+	
+	"
 	| portfolio anAccount parentPortfolio|
 	anAccount := ReceptiveAccount new.
 	Deposit register: 200 on: anAccount.
@@ -160,7 +167,7 @@ test11CanNotAddSameAccountTwiceToAPortfolioWithAPortfolioWithThisAccount
 		
         ! !
 
-!PortfolioTest methodsFor: 'constructor test' stamp: 'CB 5/19/2023 17:36:27'!
+!PortfolioTest methodsFor: 'valid adding test' stamp: 'CB 5/19/2023 17:36:27'!
 test12CanNotAddSameAccountTwiceToAPortfolioWhoseParentHasThisAccount
         
 	| portfolio anAccount parentPortfolio anAccount1|
@@ -182,7 +189,7 @@ test12CanNotAddSameAccountTwiceToAPortfolioWhoseParentHasThisAccount
 		
         ! !
 
-!PortfolioTest methodsFor: 'constructor test' stamp: 'CB 5/19/2023 18:35:29'!
+!PortfolioTest methodsFor: 'valid adding test' stamp: 'CB 5/19/2023 18:35:29'!
 test13CanNotAddAPortfolioWithOneAccountToAPortfolioThatHasTheSameAccount
         "  portfolio   <-  portfolioToAdd 
                  |                            |
@@ -206,12 +213,12 @@ test13CanNotAddAPortfolioWithOneAccountToAPortfolioThatHasTheSameAccount
 		
         ! !
 
-!PortfolioTest methodsFor: 'constructor test' stamp: 'CB 5/19/2023 19:15:50'!
+!PortfolioTest methodsFor: 'valid adding test' stamp: 'N 5/20/2023 16:46:49'!
 test14CanNotAddAPortfolioWithAPortfolioWithOneAccountToAPortfolioThatHasTheSameAccount
         "  portfolio   <-  portfolioToAdd 
                  |                            |
-          anAccount          aPortfolio3 
-                                              |
+          anAccount              aPortfolio3 
+                                              |        \
                                    anAccount   anAccount1"    
 	| portfolio portfolioToAdd anAccount anAccount1 portfolio3|
 	anAccount := ReceptiveAccount new.
@@ -225,6 +232,46 @@ test14CanNotAddAPortfolioWithAPortfolioWithOneAccountToAPortfolioThatHasTheSameA
 	portfolioToAdd add: portfolio3.
 	portfolio := Portfolio new.
         portfolio add: anAccount.
+        
+ 	 self
+		should: [ portfolio add: portfolioToAdd ]
+		raise: Error 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText = Portfolio canNotAddSameAccountTwice ].
+		
+        ! !
+
+!PortfolioTest methodsFor: 'valid adding test' stamp: 'N 5/20/2023 16:47:37'!
+test15CanNotAddAPortfolioWhoseParentPortfolioHasTheSameAccount
+ "        							parentPortfolio
+                                                     							/		\
+          portfolio     < -    portfolioToAdd  									anAccount
+               |                               /					            \
+          anAccount         anAccount1     anAccount2
+
+"    
+	| portfolio parentPortfolio portfolioToAdd anAccount anAccount1 anAccount2 |
+	
+	anAccount := ReceptiveAccount new.
+	anAccount1 :=ReceptiveAccount new. 
+	anAccount2 :=ReceptiveAccount new. 
+	
+	Deposit register: 200 on: anAccount.
+	Deposit register: 100 on: anAccount1.
+	Deposit register: 300 on: anAccount2.
+
+	
+        portfolioToAdd := Portfolio new.
+        portfolio := Portfolio new.
+	parentPortfolio := Portfolio new.
+	
+        portfolio add: anAccount.
+
+	portfolioToAdd add: anAccount1.
+	portfolioToAdd add: anAccount2.
+	
+	parentPortfolio add: anAccount.
+        parentPortfolio add: portfolioToAdd.
         
  	 self
 		should: [ portfolio add: portfolioToAdd ]
@@ -435,72 +482,102 @@ Object subclass: #Actives
 
 !classDefinition: #Portfolio category: 'Portfolio-Ejercicio'!
 Actives subclass: #Portfolio
-	instanceVariableNames: 'actives parent'
+	instanceVariableNames: 'actives parent accounts'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Ejercicio'!
 
-!Portfolio methodsFor: 'category-name' stamp: 'CB 5/19/2023 18:42:44'!
-actives
-     ^actives! !
+!Portfolio methodsFor: 'initialization' stamp: 'N 5/20/2023 16:24:46'!
+initialize 
+    
+     accounts := OrderedCollection new.
+     parent := self. ! !
 
-!Portfolio methodsFor: 'category-name' stamp: 'CB 5/19/2023 19:06:36'!
+
+!Portfolio methodsFor: 'adding' stamp: 'N 5/20/2023 16:24:16'!
 add: anActive 
-     
-         (parent contains: anActive) ifTrue: [^self error: self class canNotAddSameAccountTwice].
-         (anActive actives) do: [:anActiveToCheck | (parent contains: anActiveToCheck) ifTrue: [^self error: self class canNotAddSameAccountTwice]].    
-         actives add: anActive.
-         anActive childOf: self.! !
 
-!Portfolio methodsFor: 'category-name' stamp: 'CB 5/19/2023 16:19:27'!
+	self verifyIfActiveCanBeAdded: anActive.
+   	
+	anActive addToPortfolio: self. 
+	! !
+
+
+!Portfolio methodsFor: 'testing' stamp: 'N 5/20/2023 16:39:21'!
+contains: anAccount
+	(self root has: anAccount) ifTrue: [
+		^self error: self class canNotAddSameAccountTwice
+	].
+	^false! !
+
+!Portfolio methodsFor: 'testing' stamp: 'N 5/20/2023 16:17:16'!
+has: anActive 
+         ^self hasAnyAccountThat: [:anAccount | anAccount isPartOf: anActive].
+ 
+! !
+
+!Portfolio methodsFor: 'testing' stamp: 'N 5/20/2023 16:04:51'!
+hasAnyAccountThat: anAccountWithCondition 
+         ^accounts inject: false into: [:conditionUntilNow :nextAccount | 
+		conditionUntilNow or: (anAccountWithCondition value: nextAccount )] 
+ 
+! !
+
+!Portfolio methodsFor: 'testing' stamp: 'N 5/20/2023 16:04:51'!
+hasRegistered: aTransaction 
+	^self hasAnyAccountThat: [:anAccount | anAccount hasRegistered: aTransaction]
+	
+	! !
+
+
+!Portfolio methodsFor: 'inspecting' stamp: 'N 5/20/2023 14:45:41'!
+accounts
+	^accounts! !
+
+!Portfolio methodsFor: 'inspecting' stamp: 'N 5/20/2023 16:10:06'!
 balance
 
-	 ^actives sum: [:anActive| anActive balance] ifEmpty:[0]! !
+	 ^accounts sum: [:anActive| anActive balance] ifEmpty:[0]! !
 
-!Portfolio methodsFor: 'category-name' stamp: 'CB 5/19/2023 18:13:22'!
+!Portfolio methodsFor: 'inspecting' stamp: 'CB 5/19/2023 18:13:22'!
 childOf: aPortfolioParent
        parent := aPortfolioParent
    ! !
 
-!Portfolio methodsFor: 'category-name' stamp: 'CB 5/19/2023 18:12:20'!
-contains: anActive
-         
-         parent = self ifTrue: [^self has: anActive].
-         ^parent contains: anActive
-         
- 
-! !
+!Portfolio methodsFor: 'inspecting' stamp: 'N 5/20/2023 15:16:41'!
+root
+	parent = self ifTrue: [^self].
+         ^parent root ! !
 
-!Portfolio methodsFor: 'category-name' stamp: 'CB 5/19/2023 17:33:23'!
-has: anActive 
-         ^actives inject: false into: [:hasTheActive :nextActive | hasTheActive or: (nextActive has: anActive)] 
- 
-! !
-
-!Portfolio methodsFor: 'category-name' stamp: 'CB 5/19/2023 17:51:50'!
-initialize 
-     actives := OrderedCollection new.
-     parent := self. ! !
-
-!Portfolio methodsFor: 'category-name' stamp: 'CB 5/19/2023 17:50:16'!
-parent
-       ^parent
-   ! !
-
-!Portfolio methodsFor: 'category-name' stamp: 'CB 5/19/2023 17:03:47'!
+!Portfolio methodsFor: 'inspecting' stamp: 'N 5/20/2023 15:42:40'!
 transactions
         |transactionsOfPortfolio |
        
         transactionsOfPortfolio := OrderedCollection new.
-        "mejorar ?¿ no hacer object recursion"
-	
-	^actives inject: transactionsOfPortfolio into:  [:transactionsToNow :nextActive |
-		                                                                  transactionsToNow add: (nextActive transactions)].! !
+        
+	^ accounts inject: transactionsOfPortfolio into: [:transactionToNow :nextAccount| 
+		transactionToNow addAll: (nextAccount transactions )].! !
 
 
-!Portfolio methodsFor: 'testing' stamp: 'CB 5/19/2023 16:19:17'!
-hasRegistered: aTransaction 
-	 ^actives inject: false into: [:hasTransactionRegistered :anActive | hasTransactionRegistered or: (anActive hasRegistered: aTransaction)].! !
+!Portfolio methodsFor: 'adding - private' stamp: 'N 5/20/2023 16:22:19'!
+addAPortfolio: aPortfolioToBeAdded
+	aPortfolioToBeAdded childOf: self.
+	accounts addAll: (aPortfolioToBeAdded accounts).! !
+
+!Portfolio methodsFor: 'adding - private' stamp: 'N 5/20/2023 16:24:23'!
+addAnAccount: anAccountToBeAdded
+	accounts add: anAccountToBeAdded! !
+
+!Portfolio methodsFor: 'adding - private' stamp: 'N 5/20/2023 16:21:30'!
+addToPortfolio: aPortfolio
+	aPortfolio addAPortfolio: self.! !
+
+!Portfolio methodsFor: 'adding - private' stamp: 'N 5/20/2023 16:15:02'!
+verifyIfActiveCanBeAdded: anActive 
+     (parent root has: anActive) ifTrue: [
+		^self error: self class canNotAddSameAccountTwice
+	].
+   ! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -508,14 +585,14 @@ hasRegistered: aTransaction
 Portfolio class
 	instanceVariableNames: ''!
 
-!Portfolio class methodsFor: 'as yet unclassified' stamp: 'CB 5/19/2023 16:46:32'!
+!Portfolio class methodsFor: 'error messages' stamp: 'CB 5/19/2023 16:46:32'!
 canNotAddSameAccountTwice
     ^'can not add an existing account'! !
 
 
 !classDefinition: #ReceptiveAccount category: 'Portfolio-Ejercicio'!
 Actives subclass: #ReceptiveAccount
-	instanceVariableNames: 'transactions parent'
+	instanceVariableNames: 'transactions'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Ejercicio'!
@@ -525,19 +602,6 @@ initialize
 
 	transactions := OrderedCollection new.! !
 
-
-!ReceptiveAccount methodsFor: 'transactions' stamp: 'CB 5/19/2023 19:04:59'!
-actives
-        ^OrderedCollection with: self.! !
-
-!ReceptiveAccount methodsFor: 'transactions' stamp: 'CB 5/19/2023 18:13:58'!
-childOf: aPortfolioParent
-       parent := aPortfolioParent! !
-
-!ReceptiveAccount methodsFor: 'transactions' stamp: 'CB 5/19/2023 19:24:12'!
-has: anActive 
-        (anActive isKindOf: Portfolio) ifTrue: [anActive actives do: [:anActiveToCheck | (parent contains: anActiveToCheck) ifTrue: [^self error: self class canNotAddSameAccountTwice]]].
-	^ transactions = (anActive transactions) ! !
 
 !ReceptiveAccount methodsFor: 'transactions' stamp: 'HernanWilkinson 7/13/2011 18:37'!
 register: aTransaction
@@ -551,16 +615,33 @@ transactions
 	^ transactions copy! !
 
 
-!ReceptiveAccount methodsFor: 'balance' stamp: 'CB 5/15/2023 20:10:38'!
+!ReceptiveAccount methodsFor: 'balance' stamp: 'N 5/20/2023 16:09:07'!
 balance
          |actualBalance|
           actualBalance := 0.
-          transactions do: [:aTransaction | actualBalance := aTransaction contributesToAccountBalance: actualBalance].
-          ^actualBalance ! !
+          transactions do: [:aTransaction | 
+		actualBalance := aTransaction contributesToAccountBalance: actualBalance
+	].
+          ^actualBalance! !
 
+
+!ReceptiveAccount methodsFor: 'testing' stamp: 'N 5/20/2023 16:37:17'!
+contains: anAccount
+	^transactions = (anAccount transactions).! !
 
 !ReceptiveAccount methodsFor: 'testing' stamp: 'NR 10/17/2019 03:28:43'!
 hasRegistered: aTransaction
 
 	^ transactions includes: aTransaction 
 ! !
+
+!ReceptiveAccount methodsFor: 'testing' stamp: 'N 5/20/2023 16:39:41'!
+isPartOf: anActive
+
+	^anActive contains: self. 
+       	! !
+
+
+!ReceptiveAccount methodsFor: 'add to portfolio' stamp: 'N 5/20/2023 16:23:13'!
+addToPortfolio: aPortfolio
+	aPortfolio addAnAccount: self. ! !
