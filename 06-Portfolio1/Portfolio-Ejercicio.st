@@ -482,7 +482,7 @@ Object subclass: #Actives
 
 !classDefinition: #Portfolio category: 'Portfolio-Ejercicio'!
 Actives subclass: #Portfolio
-	instanceVariableNames: 'actives parent accounts'
+	instanceVariableNames: 'parent accounts'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Ejercicio'!
