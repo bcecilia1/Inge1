@@ -1408,3 +1408,234 @@ PASSED!
 
 !testRun: #CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 12:40:54'!
 PASSED!
+!CarritoTest methodsFor: 'test' stamp: 'NH 6/8/2023 13:10:58'!
+test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada
+	|carrito resumen|
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113717' conCantidad: 2.
+	
+	resumen := Dictionary new.
+	resumen add: '0201113716' -> 1; add: '0201113717' ->2; yourself.
+	
+	self assert: resumen equals: carrito listarCarrito.
+	! !
+
+!methodRemoval: CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 13:10:58'!
+test05ListarItemsConCantidadSeleccionadasParaElCarrito
+	|carrito resumen|
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113717' conCantidad: 2.
+	
+	resumen := Dictionary new.
+	resumen add: '0201113716' -> 1; add: '0201113717' ->2; yourself.
+	
+	self assert: resumen equals: carrito listarCarrito.
+	!
+!CarritoTest methodsFor: 'test' stamp: 'NH 6/8/2023 13:12:25' prior: 50629045!
+test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada
+	|carrito |
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113717' conCantidad: 2.
+	carrito agregarISBN: '0201113716' conCantidad: 2.
+
+	
+	self assert: 3 equals: (carrito cantidadDeCopiasDe: '0201113716'). 
+	! !
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:12:38'!
+ERROR!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:12:38'!
+ERROR!
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:13:12' prior: 50628857!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
+	(catalogo contiene: unISBN) ifFalse: [^self libroNoEnCatalogo].
+	
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+
+!methodRemoval: Carrito #listarCarrito stamp: 'NH 6/8/2023 13:13:32'!
+listarCarrito
+	^items !
+!Carrito methodsFor: 'initializatin' stamp: 'NH 6/8/2023 13:13:38' prior: 50628808!
+initializeCon: unCatalogo
+	catalogo := unCatalogo.
+	items := OrderedCollection new.! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 13:13:41'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 13:13:43'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 13:13:45'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:13:47'!
+ERROR!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:13:47'!
+ERROR!
+!Carrito methodsFor: 'informacion del carrito' stamp: 'NH 6/8/2023 13:14:13' prior: 50628813!
+cantidadProductos
+	^ items size.	  ! !
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:14:17'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 13:14:21'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:14:21'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 13:14:21'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 13:14:21'!
+PASSED!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:14:21'!
+ERROR!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:14:21'!
+ERROR!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:14:31'!
+ERROR!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:14:31'!
+ERROR!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 13:14:44'!
+cantidadDeCopiasDe: aRenameMe1 
+	self shouldBeImplemented.! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 13:15:06' prior: 50629179!
+cantidadDeCopiasDe: unISBN
+	items occurrencesOf: unISBN.! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 13:15:09' prior: 50629184!
+cantidadDeCopiasDe: unISBN
+	^items occurrencesOf: unISBN.! !
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:15:10'!
+PASSED!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+!CarritoTest methodsFor: 'test' stamp: 'NH 6/8/2023 13:16:16'!
+test06VerificaQueProductoQueNoFueAgregadoNoEstaEnCarrito
+	|carrito |
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113716' conCantidad: 2.
+	
+	self assert: 0 equals: (carrito cantidadDeCopiasDe: '0201113717'). 
+	! !
+
+!testRun: #CarritoTest #test06VerificaQueProductoQueNoFueAgregadoNoEstaEnCarrito stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test06VerificaQueProductoQueNoFueAgregadoNoEstaEnCarrito stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:09' prior: 50629096!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [self cantidadInvalidaParaAgregar].
+	(catalogo contiene: unISBN) ifFalse: [^self libroNoEnCatalogo].
+	
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:11' prior: 50629264!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [self cantidadInvalidaParaAgregar].
+	(catalogo contiene: unISBN) ifFalse: [self libroNoEnCatalogo].
+	
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:32'!
+verificaQueCantidadEsValida: unaCantidadDeCopias
+
+	^ (unaCantidadDeCopias <1) ifTrue: [self cantidadInvalidaParaAgregar]! !
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:32' prior: 50629275!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	self verificaQueCantidadEsValida: unaCantidadDeCopias.
+	(catalogo contiene: unISBN) ifFalse: [self libroNoEnCatalogo].
+	
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:54'!
+verificaQueLibroEstaEnCatalogo: unISBN
+
+	^ (catalogo contiene: unISBN) ifFalse: [self libroNoEnCatalogo]! !
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:54' prior: 50629292!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	self verificaQueCantidadEsValida: unaCantidadDeCopias.
+	self verificaQueLibroEstaEnCatalogo: unISBN.
+	
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CarritoTest #test06VerificaQueProductoQueNoFueAgregadoNoEstaEnCarrito stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CatalogoTest #test01CrearUnNuevoCatalogoConTresLibros stamp: 'NH 6/8/2023 13:21:00'!
+PASSED!
+
+!testRun: #CatalogoTest #test02ConsultarLibroEnCatalogoDevuelveFalsoSiNoEsta stamp: 'NH 6/8/2023 13:21:00'!
+PASSED!
+
+!testRun: #CatalogoTest #test02ConsultarLibroEnCatalogoDevuelveVerdaderoSiEsta stamp: 'NH 6/8/2023 13:21:00'!
+PASSED!
+
+----QUIT----(8 June 2023 13:21:22) CuisUniversity-5832.image priorSource: 9366758!

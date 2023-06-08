@@ -62,18 +62,28 @@ test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEn
 			self assert: Carrito descripcionDeLibroNoEnCatalogo 
 			equals: anError messageText].! !
 
-!CarritoTest methodsFor: 'test' stamp: 'NH 6/8/2023 12:40:49'!
-test05ListarItemsConCantidadSeleccionadasParaElCarrito
-	|carrito resumen|
+!CarritoTest methodsFor: 'test' stamp: 'NH 6/8/2023 13:12:25'!
+test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada
+	|carrito |
 
 	carrito := Carrito con: catalogo.
 	carrito agregarISBN: '0201113716' conCantidad: 1.
 	carrito agregarISBN: '0201113717' conCantidad: 2.
+	carrito agregarISBN: '0201113716' conCantidad: 2.
+
 	
-	resumen := Dictionary new.
-	resumen add: '0201113716' -> 1; add: '0201113717' ->2; yourself.
+	self assert: 3 equals: (carrito cantidadDeCopiasDe: '0201113716'). 
+	! !
+
+!CarritoTest methodsFor: 'test' stamp: 'NH 6/8/2023 13:16:16'!
+test06VerificaQueProductoQueNoFueAgregadoNoEstaEnCarrito
+	|carrito |
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113716' conCantidad: 2.
 	
-	self assert: resumen equals: carrito listarCarrito.
+	self assert: 0 equals: (carrito cantidadDeCopiasDe: '0201113717'). 
 	! !
 
 
@@ -125,14 +135,13 @@ Object subclass: #Carrito
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 12:36:14'!
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:54'!
 agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
 	
-	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
-	(catalogo contiene: unISBN) ifFalse: [^self libroNoEnCatalogo].
+	self verificaQueCantidadEsValida: unaCantidadDeCopias.
+	self verificaQueLibroEstaEnCatalogo: unISBN.
 	
-	items add: unISBN -> unaCantidadDeCopias.! !
-
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
 
 
 !Carrito methodsFor: 'agregar private' stamp: 'NH 6/8/2023 11:31:06'!
@@ -145,20 +154,30 @@ libroNoEnCatalogo
 
 	^ self error: self class descripcionDeLibroNoEnCatalogo! !
 
+!Carrito methodsFor: 'agregar private' stamp: 'NH 6/8/2023 13:20:32'!
+verificaQueCantidadEsValida: unaCantidadDeCopias
 
-!Carrito methodsFor: 'informacion del carrito' stamp: 'NH 6/8/2023 12:34:25'!
+	^ (unaCantidadDeCopias <1) ifTrue: [self cantidadInvalidaParaAgregar]! !
+
+!Carrito methodsFor: 'agregar private' stamp: 'NH 6/8/2023 13:20:54'!
+verificaQueLibroEstaEnCatalogo: unISBN
+
+	^ (catalogo contiene: unISBN) ifFalse: [self libroNoEnCatalogo]! !
+
+
+!Carrito methodsFor: 'informacion del carrito' stamp: 'NH 6/8/2023 13:15:09'!
+cantidadDeCopiasDe: unISBN
+	^items occurrencesOf: unISBN.! !
+
+!Carrito methodsFor: 'informacion del carrito' stamp: 'NH 6/8/2023 13:14:13'!
 cantidadProductos
-	^ items inject: 0 into: [:sumaParcial :cantidadProductos | sumaParcial + cantidadProductos].	  ! !
-
-!Carrito methodsFor: 'informacion del carrito' stamp: 'NH 6/8/2023 12:40:36'!
-listarCarrito
-	^items ! !
+	^ items size.	  ! !
 
 
-!Carrito methodsFor: 'initializatin' stamp: 'NH 6/8/2023 12:30:52'!
+!Carrito methodsFor: 'initializatin' stamp: 'NH 6/8/2023 13:13:38'!
 initializeCon: unCatalogo
 	catalogo := unCatalogo.
-	items := Dictionary new.! !
+	items := OrderedCollection new.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
