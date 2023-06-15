@@ -1,0 +1,3762 @@
+
+
+----QUIT----(30 May 2023 00:05:32) CuisUniversity-5832.image priorSource: 4928100!
+
+----STARTUP---- (30 May 2023 00:05:33) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-5832.image!
+
+
+----QUIT----(30 May 2023 00:05:33) CuisUniversity-5832.image priorSource: 9366537!
+
+----STARTUP---- (8 June 2023 10:43:22) as /Users/noehsueh/UBA/Ingenieria de Software I (inge1)/TusLibros/CuisUniversity-5832.image!
+
+
+TestCase subclass: #Carrito
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Carrito category: 'TusLibros' stamp: 'NH 6/8/2023 10:44:59'!
+TestCase subclass: #Carrito
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+TestCase subclass: #CarritoTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CarritoTest category: 'TusLibros' stamp: 'NH 6/8/2023 10:45:13'!
+TestCase subclass: #CarritoTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classRemoval: #Carrito stamp: 'NH 6/8/2023 10:45:16'!
+TestCase subclass: #Carrito
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Carrito category: 'TusLibros' stamp: 'NH 6/8/2023 10:57:48'!
+Object subclass: #Carrito
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CarritoTest methodsFor: 'nil' stamp: 'NH 6/8/2023 10:57:43'!
+test01CrearCarritoVacioDeUnUsuarioContraseñaValida
+	|userID password carrito|
+	
+	userID := 'user123'.
+	password := 123456.
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	! !
+
+!testRun: #CarritoTest #test01CrearCarritoVacioDeUnUsuarioContraseñaValida stamp: 'NH 6/8/2023 10:58:01'!
+ERROR!
+!Carrito class methodsFor: 'instance creation' stamp: 'NH 6/8/2023 10:58:19'!
+de: aString conContrasena: aSmallInteger 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeDe: aString conContrasena: aSmallInteger ! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 10:58:48' prior: 50624402!
+test01CrearCarritoVacioDeUnUsuarioContraseñaValida
+	|userID password carrito|
+	
+	userID := 'user123'.
+	password := '123456'.
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	! !
+
+!testRun: #CarritoTest #test01CrearCarritoVacioDeUnUsuarioContraseñaValida stamp: 'NH 6/8/2023 10:58:52'!
+ERROR!
+!Carrito class methodsFor: 'instance creation' stamp: 'NH 6/8/2023 10:59:26' prior: 50624416!
+de: anUserID conContrasena: aPassword 
+	^self new initializeDe: anUserID conContrasena: aPassword ! !
+
+!testRun: #CarritoTest #test01CrearCarritoVacioDeUnUsuarioContraseñaValida stamp: 'NH 6/8/2023 10:59:43'!
+ERROR!
+
+!classDefinition: #Carrito category: 'TusLibros' stamp: 'NH 6/8/2023 10:59:52'!
+Object subclass: #Carrito
+	instanceVariableNames: 'userID'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Carrito category: 'TusLibros' stamp: 'NH 6/8/2023 10:59:52'!
+Object subclass: #Carrito
+	instanceVariableNames: 'userID password'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 10:59:52'!
+initializeDe: anUserID conContrasena: aPassword 
+	self shouldBeImplemented.
+	userID := anUserID.
+	password := aPassword.! !
+
+!classDefinition: #Carrito category: 'TusLibros' stamp: 'NH 6/8/2023 11:00:29'!
+Object subclass: #Carrito
+	instanceVariableNames: 'userID password items'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:00:26' prior: 50624463!
+initializeDe: anUserID conContrasena: aPassword 
+	items := OrderedCollection new.! !
+
+!testRun: #CarritoTest #test01CrearCarritoVacioDeUnUsuarioContraseñaValida stamp: 'NH 6/8/2023 11:00:30'!
+ERROR!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:00:37'!
+cantidadItems
+	self shouldBeImplemented.! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:00:40' prior: 50624486!
+cantidadItems
+	^0! !
+
+!testRun: #CarritoTest #test01CrearCarritoVacioDeUnUsuarioContraseñaValida stamp: 'NH 6/8/2023 11:00:42'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoVacioDeUnUsuarioContraseñaValida stamp: 'NH 6/8/2023 11:00:42'!
+PASSED!
+
+Object subclass: #Carrito
+	instanceVariableNames: 'items'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Carrito category: 'TusLibros' stamp: 'NH 6/8/2023 11:01:02'!
+Object subclass: #Carrito
+	instanceVariableNames: 'items'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:01:23' prior: 50624490!
+cantidadItems
+	^ items size ! !
+
+!testRun: #CarritoTest #test01CrearCarritoVacioDeUnUsuarioContraseñaValida stamp: 'NH 6/8/2023 11:01:27'!
+PASSED!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:02:14'!
+test01CrearCarritoConUsarioYContraseñaValidaDevulveCarritoVacio
+	|userID password carrito|
+	
+	userID := 'user123'.
+	password := '123456'.
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	! !
+
+!methodRemoval: CarritoTest #test01CrearCarritoVacioDeUnUsuarioContraseñaValida stamp: 'NH 6/8/2023 11:02:14'!
+test01CrearCarritoVacioDeUnUsuarioContraseñaValida
+	|userID password carrito|
+	
+	userID := 'user123'.
+	password := '123456'.
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:02:38'!
+test01CrearCarritoConUsuarioYContraseñaValidaDevulveCarritoVacio
+	|userID password carrito|
+	
+	userID := 'user123'.
+	password := '123456'.
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	! !
+
+!methodRemoval: CarritoTest #test01CrearCarritoConUsarioYContraseñaValidaDevulveCarritoVacio stamp: 'NH 6/8/2023 11:02:38'!
+test01CrearCarritoConUsarioYContraseñaValidaDevulveCarritoVacio
+	|userID password carrito|
+	
+	userID := 'user123'.
+	password := '123456'.
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:03:17'!
+test01CrearCarritoConCredencialesValidasDevulveCarritoVacio
+	|userID password carrito|
+	
+	userID := 'user123'.
+	password := '123456'.
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	! !
+
+!methodRemoval: CarritoTest #test01CrearCarritoConUsuarioYContraseñaValidaDevulveCarritoVacio stamp: 'NH 6/8/2023 11:03:18'!
+test01CrearCarritoConUsuarioYContraseñaValidaDevulveCarritoVacio
+	|userID password carrito|
+	
+	userID := 'user123'.
+	password := '123456'.
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:04:47'!
+test02CrearCarritoConCredencialesInvalidasArrojaErrorDeCredencialesInvalidas
+	|userID password carrito|
+	
+	userID := 'user123'.
+	password := '123456'.
+	self on:[ Carrito de: userID conContrasena: password.]
+	
+	
+	
+	
+	! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:08:42' prior: 50624587!
+test02CrearCarritoConCredencialesInvalidasArrojaErrorDeCredencialesInvalidas
+	|userID password |
+	
+	userID := 'user123'.
+	password := '123456'.
+	self 
+		should: [ Carrito De: userID conContrasena: password]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Carrito invalidCredentials ].
+	
+	
+	
+	
+	! !
+
+!methodRemoval: CarritoTest #test02CrearCarritoConCredencialesInvalidasArrojaErrorDeCredencialesInvalidas stamp: 'NH 6/8/2023 11:10:04'!
+test02CrearCarritoConCredencialesInvalidasArrojaErrorDeCredencialesInvalidas
+	|userID password |
+	
+	userID := 'user123'.
+	password := '123456'.
+	self 
+		should: [ Carrito De: userID conContrasena: password]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: Carrito invalidCredentials ].
+	
+	
+	
+	
+	!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:10:22'!
+test01CrearCarritoConCredencialesYaValidadasDevulveCarritoVacio
+	|userID password carrito|
+	
+	userID := 'user123'.
+	password := '123456'.
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	! !
+
+!methodRemoval: CarritoTest #test01CrearCarritoConCredencialesValidasDevulveCarritoVacio stamp: 'NH 6/8/2023 11:10:22'!
+test01CrearCarritoConCredencialesValidasDevulveCarritoVacio
+	|userID password carrito|
+	
+	userID := 'user123'.
+	password := '123456'.
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:10:29' prior: 50624627!
+test01CrearCarritoConCredencialesYaValidadasDevulveCarritoVacio
+	|userID password carrito|
+	
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:10:39'!
+test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio
+	|userID password carrito|
+	
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	! !
+
+!methodRemoval: CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevulveCarritoVacio stamp: 'NH 6/8/2023 11:10:39'!
+test01CrearCarritoConCredencialesYaValidadasDevulveCarritoVacio
+	|userID password carrito|
+	
+	carrito := Carrito de: userID conContrasena: password.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:10:49' prior: 50624659!
+test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio
+	|carrito|
+	
+	carrito := Carrito new
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:11:08' prior: 50624679!
+test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:11:18' overrides: 16920235!
+initialize
+	items := OrderedCollection new.! !
+
+!methodRemoval: Carrito #initializeDe:conContrasena: stamp: 'NH 6/8/2023 11:11:20'!
+initializeDe: anUserID conContrasena: aPassword 
+	items := OrderedCollection new.!
+
+!methodRemoval: Carrito class #de:conContrasena: stamp: 'NH 6/8/2023 11:11:26'!
+de: anUserID conContrasena: aPassword 
+	^self new initializeDe: anUserID conContrasena: aPassword !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 11:11:32'!
+PASSED!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:18:55'!
+test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito
+	|carrito|
+	carrito := Carrito new.
+	carrito agregarISBN: '0201113716' conCantidad: 2.
+	
+	self assert: 2 equals: carrito cantidadItems.
+	
+	! !
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:18:59'!
+ERROR!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:19:05'!
+agregarISBN: aRenameMe1 conCantidad: aRenameMe2 
+	self shouldBeImplemented.! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:20:36' prior: 50624727!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+
+	unaCantidadDeCopias timesRepeat: [items add: unISBN]! !
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:20:37'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 11:20:37'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:20:37'!
+PASSED!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:26:56'!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1.]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: carrito descripcionDeCantidadInvalidaParaAgregarAlCarrito ].! !
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:27:01'!
+FAILURE!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:28:00' prior: 50624733!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	unaCantidadDeCopias <1 ifTrue: [self error: self class descripcionDeCantidadInvalidaParaAgregarAlCarrito].
+	unaCantidadDeCopias timesRepeat: [items add: unISBN]! !
+!Carrito class methodsFor: 'nil' stamp: 'NH 6/8/2023 11:28:35'!
+descripcionDeCantidadInvalidaParaAgregarAlCarrito
+	'Debe agregar una cantidad mayor o igual que 1 del libro'! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:28:52' prior: 50624772!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	unaCantidadDeCopias <1 ifTrue: [^self error: self class descripcionDeCantidadInvalidaParaAgregarAlCarrito].
+	unaCantidadDeCopias timesRepeat: [items add: unISBN]! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 11:28:56'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:28:56'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:28:56'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:28:56'!
+ERROR!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:30:41' prior: 50624788!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	unaCantidadDeCopias <1 ifTrue: [self error: self class descripcionDeCantidadInvalidaParaAgregarAlCarrito].
+	unaCantidadDeCopias timesRepeat: [items add: unISBN]! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:31:06'!
+cantidadInvalidaParaAgregar
+
+	^ self error: self class descripcionDeCantidadInvalidaParaAgregarAlCarrito! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:31:06' prior: 50624817!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	unaCantidadDeCopias <1 ifTrue: [self cantidadInvalidaParaAgregar].
+	unaCantidadDeCopias timesRepeat: [items add: unISBN]! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:31:21' prior: 50624751!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1.]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: carrito cantidadInvalidaParaAgregar ].! !
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:31:22'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:31:22'!
+ERROR!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 11:32:01'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:32:02'!
+PASSED!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:32:14' prior: 50624833!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	unaCantidadDeCopias <1 ifTrue: [^self cantidadInvalidaParaAgregar].
+	unaCantidadDeCopias timesRepeat: [items add: unISBN]! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 11:32:16'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:32:16'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:32:16'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:32:16'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:32:16'!
+ERROR!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:33:11' prior: 50624842!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1.]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: carrito cantidadInvalidaParaAgregar ].! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:33:30' prior: 50624909!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1]
+		raise: Error - MessageNotUnderstood 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: carrito cantidadInvalidaParaAgregar ].! !
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:33:30'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:33:30'!
+ERROR!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:34:29' prior: 50624924!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1]
+		raise: Error 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: carrito cantidadInvalidaParaAgregar ].! !
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:34:30'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:34:30'!
+ERROR!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:34:58' prior: 50624876!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
+	unaCantidadDeCopias timesRepeat: [items add: unISBN]! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 11:35:00'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:35:00'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:35:00'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:35:00'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:35:00'!
+ERROR!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:35:07' prior: 50624975!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
+	"unaCantidadDeCopias timesRepeat: [items add: unISBN]"! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 11:35:08'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:35:08'!
+FAILURE!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:35:08'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:35:14'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:35:14'!
+ERROR!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:35:25' prior: 50625008!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
+	unaCantidadDeCopias timesRepeat: [items add: unISBN]! !
+!Carrito class methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:35:31' prior: 50624781!
+descripcionDeCantidadInvalidaParaAgregarAlCarrito
+	^'Debe agregar una cantidad mayor o igual que 1 del libro'! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 11:35:32'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:35:32'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:35:32'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:35:32'!
+ERROR!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 11:35:47'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:35:47'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:35:47'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:35:47'!
+ERROR!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:36:07'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:36:09'!
+ERROR!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:36:09'!
+ERROR!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:36:28' prior: 50624950!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1]
+		raise: Error 
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: carrito cantidadInvalidaParaAgregar ].! !
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:36:28'!
+ERROR!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:38:07' prior: 50625110!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: anError messageText equals: carrito cantidadInvalidaParaAgregar ].! !
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:38:08'!
+ERROR!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:38:26' prior: 50625130!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: carrito cantidadInvalidaParaAgregar equals: anError messageText].! !
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:38:26'!
+ERROR!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:39:34' prior: 50625151!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: Carrito cantidadInvalidaParaAgregar equals: anError messageText].! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:40:00' prior: 50625172!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: Carrito descripcionDeCantidadInvalidaParaAgregarAlCarrito 
+			equals: anError messageText].! !
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:40:01'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 11:40:01'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:40:01'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:40:01'!
+PASSED!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:40:18' prior: 50625187!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: 0]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: Carrito descripcionDeCantidadInvalidaParaAgregarAlCarrito 
+			equals: anError messageText].! !
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:40:18'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 11:40:18'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 11:40:18'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 11:40:18'!
+PASSED!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:40:21' prior: 50625222!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: Carrito descripcionDeCantidadInvalidaParaAgregarAlCarrito 
+			equals: anError messageText].! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:41:08'!
+test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo
+	|carrito|
+	carrito := Carrito new.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	
+	self assert: 2 equals: carrito cantidadItems.
+	
+	! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:42:12' prior: 50625273!
+test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo
+	|carrito|
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '9781506466781' conCantidad: 1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: Carrito descripcionDeLibroNoEnCatalogo 
+			equals: anError messageText].! !
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 11:42:24'!
+FAILURE!
+!Carrito class methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 11:42:44'!
+descripcionDeLibroNoEnCatalogo
+	^'Debe agregar un libro en Catalogo'! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 11:52:01' prior: 50625041!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
+	
+	( 1=1) ifFalse: [^self error: self class descripcionDeLibroNoEnCatalogo].
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+
+TestCase subclass: #CatalogoTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CatalogoTest category: 'TusLibros' stamp: 'NH 6/8/2023 12:00:32'!
+TestCase subclass: #CatalogoTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Catalogo category: 'TusLibros' stamp: 'NH 6/8/2023 12:03:47'!
+Object subclass: #Catalogo
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CatalogoTest methodsFor: 'nil' stamp: 'NH 6/8/2023 12:03:42'!
+test01CrearUnNuevoCatalogoConTresLibros
+	
+	|catalogo|
+	catalogo := Catalogo new.
+	catalogo add: '123456'.
+	catalogo add: '123457'.
+	catalogo add: '123458'
+	
+	self assert: 3 equals: catalogo size.! !
+!CatalogoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:04:18' prior: 50625336!
+test01CrearUnNuevoCatalogoConTresLibros
+	
+	|catalogo|
+	catalogo := Catalogo new.
+	catalogo agregarLibro: '123456'.
+	catalogo agregarLibro: '123457'.
+	catalogo agregarLibro: '123458'.
+	
+	self assert: 3 equals: catalogo cantidad.! !
+
+!testRun: #CatalogoTest #test01CrearUnNuevoCatalogoConTresLibros stamp: 'NH 6/8/2023 12:04:40'!
+ERROR!
+!Catalogo methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:04:47'!
+agregarLibro: aRenameMe1 
+	self shouldBeImplemented.! !
+
+!classDefinition: #Catalogo category: 'TusLibros' stamp: 'NH 6/8/2023 12:05:12'!
+Object subclass: #Catalogo
+	instanceVariableNames: 'catalogoDeISBN'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Catalogo methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:05:10' prior: 50625359!
+agregarLibro: unISBN
+	catalogoDeISBN add: unISBN.! !
+
+!testRun: #CatalogoTest #test01CrearUnNuevoCatalogoConTresLibros stamp: 'NH 6/8/2023 12:05:14'!
+ERROR!
+!Catalogo methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:05:44' overrides: 16920235!
+initialize
+	catalogoDeISBN := OrderedCollection new.! !
+
+!testRun: #CatalogoTest #test01CrearUnNuevoCatalogoConTresLibros stamp: 'NH 6/8/2023 12:05:51'!
+ERROR!
+
+!testRun: #CatalogoTest #test01CrearUnNuevoCatalogoConTresLibros stamp: 'NH 6/8/2023 12:05:51'!
+ERROR!
+!Catalogo methodsFor: 'nil' stamp: 'NH 6/8/2023 12:06:08'!
+cantidad
+	^catalogoDeISBN size ! !
+
+!testRun: #CatalogoTest #test01CrearUnNuevoCatalogoConTresLibros stamp: 'NH 6/8/2023 12:06:09'!
+PASSED!
+!CatalogoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:07:13'!
+test02ConsultarLibroEnCatalogoDevuelveVerdaderoSiEsta
+	
+	|catalogo|
+	catalogo := Catalogo new.
+	catalogo agregarLibro: '123456'.
+	catalogo agregarLibro: '123457'.
+	catalogo agregarLibro: '123458'.
+	
+	self assert: true equals: catalogo contiene: '123456'.! !
+!CatalogoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:07:23' prior: 50625397!
+test02ConsultarLibroEnCatalogoDevuelveVerdaderoSiEsta
+	
+	|catalogo|
+	catalogo := Catalogo new.
+	catalogo agregarLibro: '123456'.
+	catalogo agregarLibro: '123457'.
+	catalogo agregarLibro: '123458'.
+	
+	self assert: true equals: (catalogo contiene: '123456').! !
+
+!testRun: #CatalogoTest #test02ConsultarLibroEnCatalogoDevuelveVerdaderoSiEsta stamp: 'NH 6/8/2023 12:07:26'!
+ERROR!
+!Catalogo methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:07:32'!
+contiene: aRenameMe1 
+	self shouldBeImplemented.! !
+!Catalogo methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:08:02' prior: 50625424!
+contiene: unISBN 
+	^catalogoDeISBN has: unISBN .! !
+
+!testRun: #CatalogoTest #test02ConsultarLibroEnCatalogoDevuelveVerdaderoSiEsta stamp: 'NH 6/8/2023 12:08:05'!
+ERROR!
+!Catalogo methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:08:34' prior: 50625429!
+contiene: unISBN 
+	^catalogoDeISBN includes: unISBN .! !
+!Catalogo methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:08:36' prior: 50625438!
+contiene: unISBN 
+	^catalogoDeISBN includes: unISBN.! !
+
+!testRun: #CatalogoTest #test01CrearUnNuevoCatalogoConTresLibros stamp: 'NH 6/8/2023 12:08:37'!
+PASSED!
+
+!testRun: #CatalogoTest #test02ConsultarLibroEnCatalogoDevuelveVerdaderoSiEsta stamp: 'NH 6/8/2023 12:08:37'!
+PASSED!
+!CatalogoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:08:56'!
+test02ConsultarLibroEnCatalogoDevuelveFalsoSiNoEsta
+	
+	|catalogo|
+	catalogo := Catalogo new.
+	catalogo agregarLibro: '123456'.
+	catalogo agregarLibro: '123457'.
+	catalogo agregarLibro: '123458'.
+	
+	self assert: true equals: (catalogo contiene: '123450').! !
+!CatalogoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:08:58' prior: 50625455!
+test02ConsultarLibroEnCatalogoDevuelveFalsoSiNoEsta
+	
+	|catalogo|
+	catalogo := Catalogo new.
+	catalogo agregarLibro: '123456'.
+	catalogo agregarLibro: '123457'.
+	catalogo agregarLibro: '123458'.
+	
+	self assert: false equals: (catalogo contiene: '123450').! !
+
+!testRun: #CatalogoTest #test02ConsultarLibroEnCatalogoDevuelveFalsoSiNoEsta stamp: 'NH 6/8/2023 12:08:59'!
+PASSED!
+
+!testRun: #CatalogoTest #test01CrearUnNuevoCatalogoConTresLibros stamp: 'NH 6/8/2023 12:08:59'!
+PASSED!
+
+!testRun: #CatalogoTest #test02ConsultarLibroEnCatalogoDevuelveFalsoSiNoEsta stamp: 'NH 6/8/2023 12:08:59'!
+PASSED!
+
+!testRun: #CatalogoTest #test02ConsultarLibroEnCatalogoDevuelveVerdaderoSiEsta stamp: 'NH 6/8/2023 12:08:59'!
+PASSED!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:11:46' prior: 50625284!
+test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo
+	|carrito catalogo|
+	
+	catalogo := Catalogo new.
+	catalogo agregarLibro: '9781506466780'. 
+	
+	carrito := Carrito con: catalogo.
+	
+	self 
+		should: [ carrito agregarISBN: '9781506466781' conCantidad: 1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: Carrito descripcionDeLibroNoEnCatalogo 
+			equals: anError messageText].! !
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:11:49'!
+ERROR!
+!Carrito class methodsFor: 'instance creation' stamp: 'NH 6/8/2023 12:11:55'!
+con: aCatalogo 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeCon: aCatalogo ! !
+!Carrito class methodsFor: 'instance creation' stamp: 'NH 6/8/2023 12:12:04' prior: 50625515!
+con: aCatalogo 
+
+	^self new initializeCon: aCatalogo ! !
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:12:05'!
+ERROR!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:12:09'!
+ERROR!
+!CarritoTest methodsFor: 'nil' stamp: 'NH 6/8/2023 12:12:20' overrides: 16961394!
+setUp
+	! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:13:07' prior: 50625537 overrides: 16961394!
+setUp
+	|catalogo|
+	
+	catalogo := Catalogo new.
+	catalogo agregarLibro: '9781506466780'. ! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:13:27' prior: 50625493!
+test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo
+	|carrito catalogo |
+	
+	catalogo := Catalogo new.
+	
+	carrito := Carrito con: catalogo.
+	
+	self 
+		should: [ carrito agregarISBN: '9781506466781' conCantidad: 1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: Carrito descripcionDeLibroNoEnCatalogo 
+			equals: anError messageText].! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:13:37' prior: 50625547!
+test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo
+	|carrito |
+
+	
+	carrito := Carrito new.
+	
+	self 
+		should: [ carrito agregarISBN: '9781506466781' conCantidad: 1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: Carrito descripcionDeLibroNoEnCatalogo 
+			equals: anError messageText].! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:13:50' prior: 50625541 overrides: 16961394!
+setUp
+	|catalogo|
+	
+	catalogo := Catalogo new.
+	catalogo agregarLibro: '0201113716'. ! !
+
+!classDefinition: #CarritoTest category: 'TusLibros' stamp: 'NH 6/8/2023 12:14:10'!
+TestCase subclass: #CarritoTest
+	instanceVariableNames: 'catalogo2'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:14:08' prior: 50625578 overrides: 16961394!
+setUp
+
+	catalogo2 := Catalogo new.
+	catalogo2 agregarLibro: '0201113716'. ! !
+
+!classDefinition: #CarritoTest category: 'TusLibros' stamp: 'NH 6/8/2023 12:14:27'!
+TestCase subclass: #CarritoTest
+	instanceVariableNames: 'catalogo'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:14:27' prior: 50625592 overrides: 16961394!
+setUp
+
+	catalogo := Catalogo new.
+	catalogo agregarLibro: '0201113716'. ! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:14:39' prior: 50624687!
+test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio
+	|carrito|
+	
+	carrito := Carrito con: catalogo.
+	
+	self assert: 0 equals: carrito cantidadItems.
+	
+	! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:14:49' prior: 50624714!
+test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito
+	|carrito|
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 2.
+	
+	self assert: 2 equals: carrito cantidadItems.
+	
+	! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:15:00' prior: 50625257!
+test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida
+	
+	|carrito|
+	
+	carrito := Carrito con: catalogo.
+	
+	self 
+		should: [ carrito agregarISBN: '0201113716' conCantidad: -1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: Carrito descripcionDeCantidadInvalidaParaAgregarAlCarrito 
+			equals: anError messageText].! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:15:10' prior: 50625563!
+test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo
+	|carrito |
+
+	
+	carrito := Carrito con: catalogo .
+	
+	self 
+		should: [ carrito agregarISBN: '9781506466781' conCantidad: 1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: Carrito descripcionDeLibroNoEnCatalogo 
+			equals: anError messageText].! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:15:11' prior: 50625646!
+test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo
+	|carrito |
+
+	
+	carrito := Carrito con: catalogo.
+	
+	self 
+		should: [ carrito agregarISBN: '9781506466781' conCantidad: 1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError |
+			self assert: Carrito descripcionDeLibroNoEnCatalogo 
+			equals: anError messageText].! !
+
+!classDefinition: #Carrito category: 'TusLibros' stamp: 'NH 6/8/2023 12:15:40'!
+Object subclass: #Carrito
+	instanceVariableNames: 'items catalogo'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:15:37'!
+initializeCon: unCatalogo
+	catalogo := unCatalogo.
+	items := OrderedCollection new.! !
+
+!methodRemoval: Carrito #initialize stamp: 'NH 6/8/2023 12:15:44'!
+initialize
+	items := OrderedCollection new.!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 12:15:50'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 12:15:51'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 12:15:52'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:15:54'!
+FAILURE!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:15:54'!
+FAILURE!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:16:20' prior: 50625308!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
+	
+	(catalogo contiene: unISBN) ifFalse: [^self error: self class descripcionDeLibroNoEnCatalogo].
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 12:16:24'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 12:16:24'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 12:16:24'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:16:24'!
+PASSED!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:16:50'!
+libroNoEnCatalogo
+
+	^ self error: self class descripcionDeLibroNoEnCatalogo! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:16:50' prior: 50625714!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
+	
+	(catalogo contiene: unISBN) ifFalse: [^self libroNoEnCatalogo].
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:16:58' prior: 50625750!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
+	(catalogo contiene: unISBN) ifFalse: [^self libroNoEnCatalogo].
+	
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 12:16:59'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 12:16:59'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 12:16:59'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:16:59'!
+PASSED!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:25:48'!
+test05listarCantidadDeComprasQueHayEnElCarrito
+	|carrito resumen|
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '9781506466781' conCantidad: 1.
+	carrito agregarISBN: '9781506466780' conCantidad: 2.
+	resumen := OrderedCollection new.
+	
+	self assert:resumen equals: carrito listarCompra.
+	! !
+
+----End fileIn of /Users/noehsueh/UBA/Ingenieria de Software I (inge1)/cuis_para el parcial/Packages/TerseGuide.pck.st----!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:29:10' prior: 50625790!
+test05listarCantidadDeComprasQueHayEnElCarrito
+	|carrito resumen|
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '9781506466781' conCantidad: 1.
+	carrito agregarISBN: '9781506466780' conCantidad: 2.
+	
+	resumen := Dictionary new.
+	resumen add: '9781506466781' -> 1; add: '9781506466780' ->2; yourself.
+	
+	self assert: resumen equals: carrito listarCarrito.
+	! !
+
+!testRun: #CarritoTest #test05listarCantidadDeComprasQueHayEnElCarrito stamp: 'NH 6/8/2023 12:29:15'!
+ERROR!
+
+!testRun: #CarritoTest #test05listarCantidadDeComprasQueHayEnElCarrito stamp: 'NH 6/8/2023 12:29:33'!
+ERROR!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:29:49' prior: 50625605 overrides: 16961394!
+setUp
+
+	catalogo := Catalogo new.
+	catalogo agregarLibro: '0201113716'. 
+	catalogo agregarLibro: '0201113716'. ! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:29:53' prior: 50628746 overrides: 16961394!
+setUp
+
+	catalogo := Catalogo new.
+	catalogo agregarLibro: '0201113716'. 
+	catalogo agregarLibro: '0201113717'. ! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:30:08' prior: 50628723!
+test05listarCantidadDeComprasQueHayEnElCarrito
+	|carrito resumen|
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113717' conCantidad: 2.
+	
+	resumen := Dictionary new.
+	resumen add: '9781506466781' -> 1; add: '0201113717' ->2; yourself.
+	
+	self assert: resumen equals: carrito listarCarrito.
+	! !
+
+!testRun: #CarritoTest #test05listarCantidadDeComprasQueHayEnElCarrito stamp: 'NH 6/8/2023 12:30:09'!
+ERROR!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:30:37'!
+test05ListarItemsConCantidadSeleccionadasParaElCarrito
+	|carrito resumen|
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113717' conCantidad: 2.
+	
+	resumen := Dictionary new.
+	resumen add: '9781506466781' -> 1; add: '0201113717' ->2; yourself.
+	
+	self assert: resumen equals: carrito listarCarrito.
+	! !
+
+!methodRemoval: CarritoTest #test05listarCantidadDeComprasQueHayEnElCarrito stamp: 'NH 6/8/2023 12:30:37'!
+test05listarCantidadDeComprasQueHayEnElCarrito
+	|carrito resumen|
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113717' conCantidad: 2.
+	
+	resumen := Dictionary new.
+	resumen add: '9781506466781' -> 1; add: '0201113717' ->2; yourself.
+	
+	self assert: resumen equals: carrito listarCarrito.
+	!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:30:52' prior: 50625682!
+initializeCon: unCatalogo
+	catalogo := unCatalogo.
+	items := Dictionary new.! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:34:25'!
+cantidadProductos
+	^ items inject: 0 into: [:sumaParcial :cantidadProductos | sumaParcial + cantidadProductos].	  ! !
+
+!methodRemoval: Carrito #cantidadItems stamp: 'NH 6/8/2023 12:34:27'!
+cantidadItems
+	^ items size !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:34:39' prior: 50625611!
+test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio
+	|carrito|
+	
+	carrito := Carrito con: catalogo.
+	
+	self assert: 0 equals: carrito cantidadProductos .
+	
+	! !
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:34:49' prior: 50625620!
+test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito
+	|carrito|
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 2.
+	
+	self assert: 2 equals: carrito cantidadProductos.
+	
+	! !
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 12:34:50'!
+ERROR!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:35:31' prior: 50625761!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
+	(catalogo contiene: unISBN) ifFalse: [^self libroNoEnCatalogo].
+	
+	items add: unISBN ->unaCantidadDeCopias.! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:36:14' prior: 50628846!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
+	(catalogo contiene: unISBN) ifFalse: [^self libroNoEnCatalogo].
+	
+	items add: unISBN -> unaCantidadDeCopias.! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 12:36:15'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 12:36:15'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 12:36:15'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:36:15'!
+PASSED!
+
+!testRun: #CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 12:36:15'!
+ERROR!
+
+!testRun: #CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 12:36:15'!
+ERROR!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 12:36:31'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 12:36:31'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 12:36:31'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:36:32'!
+PASSED!
+
+!testRun: #CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 12:36:32'!
+ERROR!
+
+!testRun: #CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 12:36:32'!
+ERROR!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 12:36:40'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 12:36:41'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 12:36:43'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:36:45'!
+PASSED!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:37:09' prior: 50628832!
+test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito
+	|carrito|
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 2.
+	carrito agregarISBN: '0201113716' conCantidad: 3.
+	
+	self assert: 2 equals: carrito cantidadProductos.
+	
+	! !
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 12:37:13'!
+FAILURE!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:40:11' prior: 50628938!
+test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito
+	|carrito|
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 2.
+	
+	
+	self assert: 2 equals: carrito cantidadProductos.
+	
+	! !
+
+!testRun: #CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 12:40:24'!
+ERROR!
+
+!testRun: #CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 12:40:24'!
+ERROR!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:40:29'!
+listarCarrito
+	self shouldBeImplemented.! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 12:40:36' prior: 50628971!
+listarCarrito
+	^items ! !
+
+!testRun: #CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 12:40:38'!
+FAILURE!
+!CarritoTest methodsFor: 'as yet unclassified' stamp: 'NH 6/8/2023 12:40:49' prior: 50628779!
+test05ListarItemsConCantidadSeleccionadasParaElCarrito
+	|carrito resumen|
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113717' conCantidad: 2.
+	
+	resumen := Dictionary new.
+	resumen add: '0201113716' -> 1; add: '0201113717' ->2; yourself.
+	
+	self assert: resumen equals: carrito listarCarrito.
+	! !
+
+!testRun: #CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 12:40:50'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 12:40:50'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 12:40:50'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 12:40:50'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:40:50'!
+PASSED!
+
+!testRun: #CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 12:40:50'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 12:40:54'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 12:40:54'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 12:40:54'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 12:40:54'!
+PASSED!
+
+!testRun: #CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 12:40:54'!
+PASSED!
+!CarritoTest methodsFor: 'test' stamp: 'NH 6/8/2023 13:10:58'!
+test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada
+	|carrito resumen|
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113717' conCantidad: 2.
+	
+	resumen := Dictionary new.
+	resumen add: '0201113716' -> 1; add: '0201113717' ->2; yourself.
+	
+	self assert: resumen equals: carrito listarCarrito.
+	! !
+
+!methodRemoval: CarritoTest #test05ListarItemsConCantidadSeleccionadasParaElCarrito stamp: 'NH 6/8/2023 13:10:58'!
+test05ListarItemsConCantidadSeleccionadasParaElCarrito
+	|carrito resumen|
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113717' conCantidad: 2.
+	
+	resumen := Dictionary new.
+	resumen add: '0201113716' -> 1; add: '0201113717' ->2; yourself.
+	
+	self assert: resumen equals: carrito listarCarrito.
+	!
+!CarritoTest methodsFor: 'test' stamp: 'NH 6/8/2023 13:12:25' prior: 50629045!
+test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada
+	|carrito |
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113717' conCantidad: 2.
+	carrito agregarISBN: '0201113716' conCantidad: 2.
+
+	
+	self assert: 3 equals: (carrito cantidadDeCopiasDe: '0201113716'). 
+	! !
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:12:38'!
+ERROR!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:12:38'!
+ERROR!
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:13:12' prior: 50628857!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [^self cantidadInvalidaParaAgregar].
+	(catalogo contiene: unISBN) ifFalse: [^self libroNoEnCatalogo].
+	
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+
+!methodRemoval: Carrito #listarCarrito stamp: 'NH 6/8/2023 13:13:32'!
+listarCarrito
+	^items !
+!Carrito methodsFor: 'initializatin' stamp: 'NH 6/8/2023 13:13:38' prior: 50628808!
+initializeCon: unCatalogo
+	catalogo := unCatalogo.
+	items := OrderedCollection new.! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 13:13:41'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 13:13:43'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 13:13:45'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:13:47'!
+ERROR!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:13:47'!
+ERROR!
+!Carrito methodsFor: 'informacion del carrito' stamp: 'NH 6/8/2023 13:14:13' prior: 50628813!
+cantidadProductos
+	^ items size.	  ! !
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:14:17'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 13:14:21'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:14:21'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 13:14:21'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 13:14:21'!
+PASSED!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:14:21'!
+ERROR!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:14:21'!
+ERROR!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:14:31'!
+ERROR!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:14:31'!
+ERROR!
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 13:14:44'!
+cantidadDeCopiasDe: aRenameMe1 
+	self shouldBeImplemented.! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 13:15:06' prior: 50629179!
+cantidadDeCopiasDe: unISBN
+	items occurrencesOf: unISBN.! !
+!Carrito methodsFor: 'category-name' stamp: 'NH 6/8/2023 13:15:09' prior: 50629184!
+cantidadDeCopiasDe: unISBN
+	^items occurrencesOf: unISBN.! !
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:15:10'!
+PASSED!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:15:13'!
+PASSED!
+!CarritoTest methodsFor: 'test' stamp: 'NH 6/8/2023 13:16:16'!
+test06VerificaQueProductoQueNoFueAgregadoNoEstaEnCarrito
+	|carrito |
+
+	carrito := Carrito con: catalogo.
+	carrito agregarISBN: '0201113716' conCantidad: 1.
+	carrito agregarISBN: '0201113716' conCantidad: 2.
+	
+	self assert: 0 equals: (carrito cantidadDeCopiasDe: '0201113717'). 
+	! !
+
+!testRun: #CarritoTest #test06VerificaQueProductoQueNoFueAgregadoNoEstaEnCarrito stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+
+!testRun: #CarritoTest #test06VerificaQueProductoQueNoFueAgregadoNoEstaEnCarrito stamp: 'NH 6/8/2023 13:16:19'!
+PASSED!
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:09' prior: 50629096!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [self cantidadInvalidaParaAgregar].
+	(catalogo contiene: unISBN) ifFalse: [^self libroNoEnCatalogo].
+	
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:11' prior: 50629264!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	(unaCantidadDeCopias <1) ifTrue: [self cantidadInvalidaParaAgregar].
+	(catalogo contiene: unISBN) ifFalse: [self libroNoEnCatalogo].
+	
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:32'!
+verificaQueCantidadEsValida: unaCantidadDeCopias
+
+	^ (unaCantidadDeCopias <1) ifTrue: [self cantidadInvalidaParaAgregar]! !
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:32' prior: 50629275!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	self verificaQueCantidadEsValida: unaCantidadDeCopias.
+	(catalogo contiene: unISBN) ifFalse: [self libroNoEnCatalogo].
+	
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:54'!
+verificaQueLibroEstaEnCatalogo: unISBN
+
+	^ (catalogo contiene: unISBN) ifFalse: [self libroNoEnCatalogo]! !
+!Carrito methodsFor: 'agregar' stamp: 'NH 6/8/2023 13:20:54' prior: 50629292!
+agregarISBN: unISBN conCantidad: unaCantidadDeCopias 
+	
+	self verificaQueCantidadEsValida: unaCantidadDeCopias.
+	self verificaQueLibroEstaEnCatalogo: unISBN.
+	
+	unaCantidadDeCopias timesRepeat: [items add: unISBN].! !
+
+!testRun: #CarritoTest #test01CrearCarritoConCredencialesYaValidadasDevuelveCarritoVacio stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CarritoTest #test02AgregarAlCarritoDosCopiasDelMismoLibroEnCatalogoAlCarrito stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CarritoTest #test03AgregarAlCarritoUnaCantidadNegativaDeCopiasDelMismoLibroEnCatalogoAlCarritoArrojaErrorDeCantidadInvalida stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CarritoTest #test04AgregarAlCarritoUnaCopiaDeLibroNoEnCatalogoAlCarritoArrojaErrorDeLibroNoEnCatalogo stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CarritoTest #test05VerificaQueProductoEstaEnCarritoConLaCantidadDeseada stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CarritoTest #test06VerificaQueProductoQueNoFueAgregadoNoEstaEnCarrito stamp: 'NH 6/8/2023 13:20:57'!
+PASSED!
+
+!testRun: #CatalogoTest #test01CrearUnNuevoCatalogoConTresLibros stamp: 'NH 6/8/2023 13:21:00'!
+PASSED!
+
+!testRun: #CatalogoTest #test02ConsultarLibroEnCatalogoDevuelveFalsoSiNoEsta stamp: 'NH 6/8/2023 13:21:00'!
+PASSED!
+
+!testRun: #CatalogoTest #test02ConsultarLibroEnCatalogoDevuelveVerdaderoSiEsta stamp: 'NH 6/8/2023 13:21:00'!
+PASSED!
+
+----QUIT----(8 June 2023 13:21:22) CuisUniversity-5832.image priorSource: 9366758!
+
+----STARTUP---- (12 June 2023 17:36:20) as /Users/noehsueh/UBA/Ingenieria de Software I (inge1)/TusLibros/CuisUniversity-5832.image!
+
+
+!classRemoval: #Catalogo stamp: 'NH 6/12/2023 17:36:41'!
+Object subclass: #Catalogo
+	instanceVariableNames: 'catalogoDeISBN'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classRemoval: #Carrito stamp: 'NH 6/12/2023 17:36:41'!
+Object subclass: #Carrito
+	instanceVariableNames: 'items catalogo'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classRemoval: #CatalogoTest stamp: 'NH 6/12/2023 17:36:41'!
+TestCase subclass: #CatalogoTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classRemoval: #CarritoTest stamp: 'NH 6/12/2023 17:36:42'!
+TestCase subclass: #CarritoTest
+	instanceVariableNames: 'catalogo'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+----End fileIn of /Users/noehsueh/UBA/Ingenieria de Software I (inge1)/TusLibros/TusLibros.iteracion.2.st----!
+!StoreTestObjectsFactory methodsFor: 'initialization' stamp: 'NH 6/12/2023 17:46:10' prior: 50629918 overrides: 16920235!
+initialize
+
+	today := DateAndTime now "year: 2010 day: 365 hour: 0 minute: 0 second: 0"! !
+
+!testRun: #CartTest #test01NewCartsAreCreatedEmpty stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CartTest #test02CanNotAddItemsThatDoNotBelongToStore stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CartTest #test03AfterAddingAnItemTheCartIsNotEmptyAnymore stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CartTest #test04CanNotAddNonPositiveNumberOfItems stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CartTest #test05CanNotAddMoreThanOneItemNotSellByTheStore stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CartTest #test06CartRemembersAddedItems stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CartTest #test07CartDoesNotHoldNotAddedItems stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CartTest #test08CartRemembersTheNumberOfAddedItems stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CashierTest #test01CanNotCheckoutAnEmptyCart stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CashierTest #test02CalculatedTotalIsCorrect stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CashierTest #test03CanNotCheckoutWithAnExpiredCreditCart stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutRegistersASale stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CashierTest #test05CashierChargesCreditCardUsingMerchantProcessor stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CashierTest #test06CashierDoesNotSaleWhenTheCreditCardHasNoCredit stamp: 'NH 6/12/2023 17:46:14'!
+PASSED!
+
+!testRun: #CartTest #test01NewCartsAreCreatedEmpty stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CartTest #test02CanNotAddItemsThatDoNotBelongToStore stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CartTest #test03AfterAddingAnItemTheCartIsNotEmptyAnymore stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CartTest #test04CanNotAddNonPositiveNumberOfItems stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CartTest #test05CanNotAddMoreThanOneItemNotSellByTheStore stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CartTest #test06CartRemembersAddedItems stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CartTest #test07CartDoesNotHoldNotAddedItems stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CartTest #test08CartRemembersTheNumberOfAddedItems stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CashierTest #test01CanNotCheckoutAnEmptyCart stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CashierTest #test02CalculatedTotalIsCorrect stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CashierTest #test03CanNotCheckoutWithAnExpiredCreditCart stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutRegistersASale stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CashierTest #test05CashierChargesCreditCardUsingMerchantProcessor stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+!testRun: #CashierTest #test06CashierDoesNotSaleWhenTheCreditCardHasNoCredit stamp: 'NH 6/12/2023 17:46:21'!
+PASSED!
+
+TestCase subclass: #RestTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #RestTest category: 'TusLibros' stamp: 'NH 6/12/2023 18:41:23'!
+TestCase subclass: #RestTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Rest category: 'TusLibros' stamp: 'NH 6/12/2023 19:13:14'!
+Object subclass: #Rest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!RestTest methodsFor: 'nil' stamp: 'NH 6/12/2023 19:14:12'!
+test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio
+	
+	|cartId aValidUser aValidPassword|
+	
+	
+	cartId := Rest createCart: aValidUser autenticatedWith: aValidPassword.
+	
+	self assert: true equals: (Rest listCart: cartId) isEmpty.! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:15:09' prior: 50630044!
+test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio
+	
+	|cartId aValidUser aValidPassword|
+	
+	aValidUser := StoreTestObjectsFactory aValidUser.
+	aValidPassword := StoreTestObjectsFactory aValidPassword.
+	cartId := Rest createCart: aValidUser autenticatedWith: aValidPassword.
+	
+	self assert: true equals: (Rest listCart: cartId) isEmpty.! !
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:15:16'!
+ERROR!
+!StoreTestObjectsFactory class methodsFor: 'category-name' stamp: 'NH 6/12/2023 19:15:26'!
+aValidUser
+	self shouldBeImplemented.! !
+!StoreTestObjectsFactory class methodsFor: 'category-name' stamp: 'NH 6/12/2023 19:15:42' prior: 50630073!
+aValidUser
+	^'user123'! !
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:15:43'!
+ERROR!
+!StoreTestObjectsFactory class methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:15:52'!
+aValidPassword
+	self shouldBeImplemented.! !
+!StoreTestObjectsFactory class methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:16:08' prior: 50630086!
+aValidPassword
+	^'Aa1234567'! !
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:16:09'!
+ERROR!
+!Rest class methodsFor: 'instance creation' stamp: 'NH 6/12/2023 19:16:15'!
+createCart: aString autenticatedWith: aString2 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeCreateCart: aString autenticatedWith: aString2 ! !
+!Rest class methodsFor: 'instance creation' stamp: 'NH 6/12/2023 19:16:39' prior: 50630098!
+createCart: aUser autenticatedWith: aPassword 
+	
+	^self new initializeCreateCart: aUser autenticatedWith: aPassword ! !
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:16:40'!
+ERROR!
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:16:43'!
+ERROR!
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:16:51'!
+ERROR!
+!StoreTestObjectsFactory methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:17:41'!
+aValidUser
+	^'user123'! !
+
+!methodRemoval: StoreTestObjectsFactory class #aValidUser stamp: 'NH 6/12/2023 19:17:41'!
+aValidUser
+	^'user123'!
+!StoreTestObjectsFactory methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:17:52'!
+aValidPassword
+	^'Aa1234567'! !
+
+!methodRemoval: StoreTestObjectsFactory class #aValidPassword stamp: 'NH 6/12/2023 19:17:52'!
+aValidPassword
+	^'Aa1234567'!
+!RestTest methodsFor: 'nil' stamp: 'NH 6/12/2023 19:18:22' overrides: 16961394!
+setUp
+	! !
+
+!classDefinition: #RestTest category: 'TusLibros' stamp: 'NH 6/12/2023 19:19:01'!
+TestCase subclass: #RestTest
+	instanceVariableNames: 'testObjectsFactory'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #RestTest category: 'TusLibros' stamp: 'NH 6/12/2023 19:19:02'!
+TestCase subclass: #RestTest
+	instanceVariableNames: 'testObjectsFactory authenticationBehavior'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:18:58' prior: 50630142 overrides: 16961394!
+setUp
+	testObjectsFactory := StoreTestObjectsFactory new.
+	authenticationBehavior := [ :anUser :aPassword | ]! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:21:06'!
+autenticate:anUser with: aPass
+! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:21:28' prior: 50630167!
+autenticate:anUser with: aPass
+	authenticationBehavior value: anUser value: aPass ! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:21:29' prior: 50630171!
+autenticate:anUser with: aPass
+	authenticationBehavior value: anUser value: aPass. ! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:22:11' prior: 50630055!
+test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio
+	
+	|cartId aValidUser aValidPassword|
+	
+	aValidUser := testObjectsFactory aValidUser.
+	aValidPassword := testObjectsFactory aValidPassword.
+	cartId := Rest 
+		createCart: aValidUser 
+		autenticatedWith: aValidPassword
+		through: authenticationBehavior.
+	
+	self assert: true equals: (Rest listCart: cartId) isEmpty.! !
+!Rest class methodsFor: 'instance creation' stamp: 'NH 6/12/2023 19:22:42'!
+createCart: aUser autenticatedWith: aPassword through: anAuthenticator
+	
+	^self new initializeCreateCart: aUser autenticatedWith: aPassword ! !
+!Rest class methodsFor: 'instance creation' stamp: 'NH 6/12/2023 19:22:52' prior: 50630198!
+createCart: aUser autenticatedWith: aPassword through: anAuthenticator
+	
+	^self new initializeCreateCart: aUser autenticatedWith: aPassword through: anAuthenticator.! !
+
+!methodRemoval: Rest class #createCart:autenticatedWith: stamp: 'NH 6/12/2023 19:22:55'!
+createCart: aUser autenticatedWith: aPassword 
+	
+	^self new initializeCreateCart: aUser autenticatedWith: aPassword !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:24:13' prior: 50630183!
+test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio
+	
+	|cartId aValidUser aValidPassword|
+	
+	aValidUser := testObjectsFactory aValidUser.
+	aValidPassword := testObjectsFactory aValidPassword.
+	authenticationBehavior := [:anUser :aPass | ].
+	
+	cartId := Rest 
+		createCart: aValidUser 
+		autenticatedWith: aValidPassword
+		through: authenticationBehavior.
+	
+	self assert: true equals: (Rest listCart: cartId) isEmpty.! !
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:24:22'!
+ERROR!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:24:48' prior: 50630221!
+test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio
+	
+	|cartId aValidUser aValidPassword|
+	
+	aValidUser := testObjectsFactory aValidUser.
+	aValidPassword := testObjectsFactory aValidPassword.
+	authenticationBehavior := [:anUser :aPass | ].
+	
+	cartId := Rest 
+		createCart: aValidUser 
+		autenticatedWith: aValidPassword
+		through: authenticationBehavior.
+	
+	self assert: true equals: (Rest listCart: cartId) isEmpty.! !
+!Rest class methodsFor: 'instance creation' stamp: 'NH 6/12/2023 19:24:55' prior: 50630206!
+createCart: aUser autenticatedWith: aPassword through: anAuthenticator
+	
+	^self new initializeCreateCart: aUser autenticatedWith: aPassword through: anAuthenticator.! !
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:25:01'!
+ERROR!
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:25:01'!
+ERROR!
+
+!classDefinition: #Rest category: 'TusLibros' stamp: 'NH 6/12/2023 19:25:08'!
+Object subclass: #Rest
+	instanceVariableNames: 'user'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Rest category: 'TusLibros' stamp: 'NH 6/12/2023 19:25:08'!
+Object subclass: #Rest
+	instanceVariableNames: 'user password'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Rest category: 'TusLibros' stamp: 'NH 6/12/2023 19:25:09'!
+Object subclass: #Rest
+	instanceVariableNames: 'user password authenticator'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Rest methodsFor: 'category-name' stamp: 'NH 6/12/2023 19:25:09'!
+initializeCreateCart: aUser autenticatedWith: aPassword through: anAuthenticator 
+	self shouldBeImplemented.
+	user := aUser.
+	password := aPassword.
+	authenticator := anAuthenticator.! !
+!Rest methodsFor: 'category-name' stamp: 'NH 6/12/2023 19:25:16' prior: 50630293!
+initializeCreateCart: aUser autenticatedWith: aPassword through: anAuthenticator 
+	user := aUser.
+	password := aPassword.
+	authenticator := anAuthenticator.! !
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:25:17'!
+ERROR!
+!Rest class methodsFor: 'instance creation' stamp: 'NH 6/12/2023 19:25:34'!
+listCart: aRest 
+	"DO NOT FORGET TO RENAME COLLABORATORS AND REMOVE THIS COMMENT!!!!"
+	self shouldBeImplemented.
+	^self new initializeListCart: aRest ! !
+!Rest class methodsFor: 'instance creation' stamp: 'NH 6/12/2023 19:25:53' prior: 50630313!
+listCart: aCartID 
+	
+	^OrderedCollection new.! !
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:25:54'!
+PASSED!
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:25:58'!
+PASSED!
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:25:58'!
+PASSED!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:27:54' prior: 50630241!
+test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio
+	
+	|cartId aValidUser aValidPassword aRestInterface|
+	
+	aValidUser := testObjectsFactory aValidUser.
+	aValidPassword := testObjectsFactory aValidPassword.
+	authenticationBehavior := [:anUser :aPass | ].
+	
+	aRestInterface := Rest 
+		createCart: aValidUser 
+		autenticatedWith: aValidPassword
+		through: authenticationBehavior.
+	
+	self assert: true equals: (Rest listCart: cartId) isEmpty.! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:28:12' prior: 50630337!
+test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio
+	
+	|cartId aValidUser aValidPassword aRestInterface|
+	
+	aValidUser := testObjectsFactory aValidUser.
+	aValidPassword := testObjectsFactory aValidPassword.
+	authenticationBehavior := [:anUser :aPass | ].
+	
+	aRestInterface := Rest 
+		createCart: aValidUser 
+		autenticatedWith: aValidPassword
+		through: authenticationBehavior.
+	
+	cartId := aRestInterface cartID
+	
+	self assert: true equals: (Rest listCart: cartId) isEmpty.! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:28:20' prior: 50630354!
+test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio
+	
+	|cartId aValidUser aValidPassword aRestInterface|
+	
+	aValidUser := testObjectsFactory aValidUser.
+	aValidPassword := testObjectsFactory aValidPassword.
+	authenticationBehavior := [:anUser :aPass | ].
+	
+	aRestInterface := Rest 
+		createCart: aValidUser 
+		autenticatedWith: aValidPassword
+		through: authenticationBehavior.
+	
+	cartId := aRestInterface cartID.
+	
+	self assert: true equals: (Rest listCart: cartId) isEmpty.! !
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:28:26'!
+ERROR!
+!Rest methodsFor: 'category-name' stamp: 'NH 6/12/2023 19:28:35'!
+cartID
+	self shouldBeImplemented.! !
+!Rest methodsFor: 'category-name' stamp: 'NH 6/12/2023 19:28:40' prior: 50630393!
+cartID
+	^1! !
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:28:44'!
+PASSED!
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:28:44'!
+PASSED!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:30:07'!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|cartId aValidUser aValidPassword aRestInterface|
+	
+	aValidUser := testObjectsFactory anInvalidUser.
+	aValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | self fail].
+	
+	aRestInterface := Rest 
+		createCart: aValidUser 
+		autenticatedWith: aValidPassword
+		through: authenticationBehavior.
+	
+	cartId := aRestInterface cartID.
+	
+	self assert: true equals: (Rest listCart: cartId) isEmpty.! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:33:15' prior: 50630408!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | self fail].
+	
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.]
+		raise: Error - MessageNotUnderstood
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:33:26'!
+ERROR!
+!StoreTestObjectsFactory methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:33:38'!
+anInvalidUser
+	self shouldBeImplemented.! !
+!StoreTestObjectsFactory methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:33:49' prior: 50630447!
+anInvalidUser
+	^'anInvalidUser'
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:33:50'!
+ERROR!
+!StoreTestObjectsFactory methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:33:56'!
+anInvalidPassword
+	self shouldBeImplemented.! !
+!StoreTestObjectsFactory methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:34:08' prior: 50630460!
+anInvalidPassword
+	^'anInvalidPassword'! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:34:13'!
+FAILURE!
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:34:24'!
+PASSED!
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:34:27'!
+FAILURE!
+!Rest methodsFor: 'category-name' stamp: 'NH 6/12/2023 19:36:01' prior: 50630302!
+initializeCreateCart: aUser autenticatedWith: aPassword through: anAuthenticator 
+	anAuthenticator autenticate:  aUser with: aPassword.
+	user := aUser.
+	password := aPassword.
+	authenticator := anAuthenticator.! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:36:38' prior: 50630372!
+test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio
+	
+	|cartId aValidUser aValidPassword aRestInterface|
+	
+	aValidUser := testObjectsFactory aValidUser.
+	aValidPassword := testObjectsFactory aValidPassword.
+	authenticationBehavior := [:anUser :aPass | ].
+	
+	aRestInterface := Rest 
+		createCart: aValidUser 
+		autenticatedWith: aValidPassword
+		through: self.
+	
+	cartId := aRestInterface cartID.
+	
+	self assert: true equals: (Rest listCart: cartId) isEmpty.! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:36:41'!
+FAILURE!
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:39:33'!
+PASSED!
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:39:35'!
+FAILURE!
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:39:35'!
+FAILURE!
+!Rest methodsFor: 'category-name' stamp: 'NH 6/12/2023 19:43:14' prior: 50630480!
+initializeCreateCart: aUser autenticatedWith: aPassword through: anAuthenticator 
+	anAuthenticator autenticate: aUser with: aPassword.
+	user := aUser.
+	password := aPassword.
+	authenticator := anAuthenticator.! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:45:16'!
+FAILURE!
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:45:16'!
+FAILURE!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:46:38' prior: 50630427!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | self fail].
+	
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = 'invalid credentials'
+		]
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:46:42'!
+FAILURE!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:46:54' prior: 50630539!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | self fail].
+	
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			
+		]
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:46:55'!
+FAILURE!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:47:36' prior: 50630562!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass |].
+	
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			
+		]
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:47:37'!
+FAILURE!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:51:33' prior: 50630583!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | self fail].
+	
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			
+		]
+	! !
+
+!testRun: #CashierTest #test03CanNotCheckoutWithAnExpiredCreditCart stamp: 'NH 6/12/2023 19:52:23'!
+PASSED!
+
+!testRun: #CashierTest #test01CanNotCheckoutAnEmptyCart stamp: 'NH 6/12/2023 19:52:23'!
+PASSED!
+
+!testRun: #CashierTest #test02CalculatedTotalIsCorrect stamp: 'NH 6/12/2023 19:52:23'!
+PASSED!
+
+!testRun: #CashierTest #test03CanNotCheckoutWithAnExpiredCreditCart stamp: 'NH 6/12/2023 19:52:23'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutRegistersASale stamp: 'NH 6/12/2023 19:52:23'!
+PASSED!
+
+!testRun: #CashierTest #test05CashierChargesCreditCardUsingMerchantProcessor stamp: 'NH 6/12/2023 19:52:23'!
+PASSED!
+
+!testRun: #CashierTest #test06CashierDoesNotSaleWhenTheCreditCardHasNoCredit stamp: 'NH 6/12/2023 19:52:23'!
+PASSED!
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:53:12'!
+FAILURE!
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:53:12'!
+FAILURE!
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 19:53:26'!
+PASSED!
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:53:26'!
+FAILURE!
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:53:26'!
+FAILURE!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:53:46' prior: 50630604!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | ^self fail].
+	
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			
+		]
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:53:48'!
+FAILURE!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 19:57:05' prior: 50630663!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | ^self fail].
+	
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.]
+		raise: Error - MessageNotUnderstood
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 19:57:06'!
+FAILURE!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 20:00:10' prior: 50630684!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | ^self fail].
+	
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = Rest invalidCredentialsErrorMessage.
+		]
+	! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 20:00:15' prior: 50630704!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | ^self fail].
+	
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = Rest invalidCredentialsErrorMessage.
+		]
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 20:00:16'!
+FAILURE!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 20:00:25' prior: 50630724!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | self fail].
+	
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = Rest invalidCredentialsErrorMessage.
+		]
+	! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 20:00:28' prior: 50630748!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | self fail].
+	
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = Rest invalidCredentialsErrorMessage.
+		]
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 20:00:33'!
+FAILURE!
+!Rest methodsFor: 'category-name' stamp: 'NH 6/12/2023 20:01:02' prior: 50630522!
+initializeCreateCart: aUser autenticatedWith: aPassword through: anAuthenticator 
+
+	anAuthenticator autenticate: aUser with: aPassword.
+	
+	user := aUser.
+	password := aPassword.
+	authenticator := anAuthenticator.! !
+!Rest methodsFor: 'category-name' stamp: 'NH 6/12/2023 20:01:27' prior: 50630791!
+initializeCreateCart: aUser autenticatedWith: aPassword through: anAuthenticator 
+	
+	user := aUser.
+	password := aPassword.
+	authenticator := anAuthenticator.
+	
+	anAuthenticator autenticate: aUser with: aPassword.! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 20:01:31'!
+FAILURE!
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 20:05:05'!
+FAILURE!
+!Rest class methodsFor: 'nil' stamp: 'NH 6/12/2023 20:05:32'!
+invalidCredentialsErrroDescription
+	^'invalid credentials'! !
+!Rest class methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 20:05:35' prior: 50630818!
+invalidCredentialsErrroDescription
+	^'invalid credentials'! !
+!Rest class methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 20:05:53'!
+invalidCredentialsErrorMessage
+	^'invalid credentials'! !
+
+!methodRemoval: Rest class #invalidCredentialsErrroDescription stamp: 'NH 6/12/2023 20:05:55'!
+invalidCredentialsErrroDescription
+	^'invalid credentials'!
+
+|aNotValidUser aNotValidPassword testObjectsFactory|
+
+testObjectsFactory  StoreTestObjectsFactory new.
+aNotValidUser := testObjectsFactory anInvalidUser.
+aNotValidPassword := testObjectsFactory anInvalidPassword.
+authenticationBehavior := [:anUser :aPass | self fail].
+
+Rest createCart: aNotValidUser autenticatedWith: aNotValidPassword through: self!
+
+|aNotValidUser aNotValidPassword testObjectsFactory|
+
+testObjectsFactory  StoreTestObjectsFactory new.
+aNotValidUser := testObjectsFactory anInvalidUser.
+aNotValidPassword := testObjectsFactory anInvalidPassword.
+authenticationBehavior := [:anUser :aPass | self fail].
+
+Rest createCart: aNotValidUser autenticatedWith: aNotValidPassword through: self.!
+!Rest methodsFor: 'category-name' stamp: 'NH 6/12/2023 20:10:29' prior: 50630801!
+initializeCreateCart: aUser autenticatedWith: aPassword through: anAuthenticator 
+	
+	user := aUser.
+	password := aPassword.
+	authenticator := anAuthenticator.
+	
+	authenticator autenticate: aUser with: aPassword.! !
+
+|aNotValidUser aNotValidPassword testObjectsFactory|
+
+testObjectsFactory  StoreTestObjectsFactory new.
+aNotValidUser := testObjectsFactory anInvalidUser.
+aNotValidPassword := testObjectsFactory anInvalidPassword.
+authenticationBehavior := [:anUser :aPass | self fail].
+
+Rest createCart: aNotValidUser autenticatedWith: aNotValidPassword through: self.!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 20:12:38' prior: 50630768!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | self fail].
+	Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.
+	
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 20:12:38'!
+FAILURE!
+!CashierTest methodsFor: 'tests' stamp: 'NH 6/12/2023 20:18:26' prior: 50629531!
+test03CanNotCheckoutWithAnExpiredCreditCart
+
+	| cart salesBook |
+
+	cart := testObjectsFactory createCart.
+	cart add: testObjectsFactory itemSellByTheStore.
+	salesBook := OrderedCollection new.
+	debitBehavior := [ :anAmount :aCreditCard | self fail.].
+	Cashier 
+				toCheckout: cart 
+				charging: testObjectsFactory expiredCreditCard 
+				throught: self
+				on: testObjectsFactory today
+				registeringOn: salesBook.
+	
+	self
+		should: [ Cashier 
+				toCheckout: cart 
+				charging: testObjectsFactory expiredCreditCard 
+				throught: self
+				on: testObjectsFactory today
+				registeringOn: salesBook ]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = Cashier canNotChargeAnExpiredCreditCardErrorMessage.
+			self assert: salesBook isEmpty ]! !
+
+!testRun: #CashierTest #test03CanNotCheckoutWithAnExpiredCreditCart stamp: 'NH 6/12/2023 20:18:26'!
+ERROR!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 20:19:45' prior: 50630881!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | self error: self invalidCredentialsErrorMessage].
+	Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.
+	
+	! !
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 20:19:51' prior: 50630931!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | self error: Rest invalidCredentialsErrorMessage].
+	Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.
+	
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 20:19:54'!
+ERROR!
+!RestTest methodsFor: 'as yet unclassified' stamp: 'NH 6/12/2023 20:20:20' prior: 50630947!
+test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito
+	
+	|aNotValidUser aNotValidPassword |
+	
+	aNotValidUser := testObjectsFactory anInvalidUser.
+	aNotValidPassword := testObjectsFactory anInvalidPassword.
+	authenticationBehavior := [:anUser :aPass | self error: Rest invalidCredentialsErrorMessage].
+	self
+		should: [ Rest 
+			createCart: aNotValidUser 
+			autenticatedWith: aNotValidPassword
+			through: self.]
+		raise: Error - MessageNotUnderstood
+	
+	! !
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 20:20:21'!
+PASSED!
+
+!testRun: #RestTest #test01usuarioCreadoCorrectamenteDevuelveUnCarritoVacio stamp: 'NH 6/12/2023 20:20:21'!
+PASSED!
+
+!testRun: #RestTest #test02usuarioCreadoIncorrectamenteNoDevuelveUnCarrito stamp: 'NH 6/12/2023 20:20:21'!
+PASSED!
+
+!classRemoval: #StoreTestObjectsFactory stamp: 'NH 6/12/2023 20:46:26'!
+Object subclass: #StoreTestObjectsFactory
+	instanceVariableNames: 'today'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classRemoval: #Rest stamp: 'NH 6/12/2023 20:46:27'!
+Object subclass: #Rest
+	instanceVariableNames: 'user password authenticator'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classRemoval: #CreditCard stamp: 'NH 6/12/2023 20:46:27'!
+Object subclass: #CreditCard
+	instanceVariableNames: 'expiration'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classRemoval: #Cashier stamp: 'NH 6/12/2023 20:46:27'!
+Object subclass: #Cashier
+	instanceVariableNames: 'cart salesBook merchantProcessor creditCard total'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classRemoval: #Cart stamp: 'NH 6/12/2023 20:46:28'!
+Object subclass: #Cart
+	instanceVariableNames: 'catalog items'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classRemoval: #RestTest stamp: 'NH 6/12/2023 20:46:28'!
+TestCase subclass: #RestTest
+	instanceVariableNames: 'testObjectsFactory authenticationBehavior'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classRemoval: #CashierTest stamp: 'NH 6/12/2023 20:46:28'!
+TestCase subclass: #CashierTest
+	instanceVariableNames: 'testObjectsFactory debitBehavior'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classRemoval: #CartTest stamp: 'NH 6/12/2023 20:46:28'!
+TestCase subclass: #CartTest
+	instanceVariableNames: 'testObjectsFactory'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+----End fileIn of /Users/noehsueh/UBA/Ingenieria de Software I (inge1)/TusLibros/TusLibros.iteracion.2.5.st----!
+
+----QUIT----(13 June 2023 15:58:13) CuisUniversity-5832.image priorSource: 9526507!
+
+----STARTUP---- (15 June 2023 11:22:50) as /Users/noehsueh/UBA/Ingenieria de Software I (inge1)/TusLibros/CuisUniversity-5832.image!
+
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:35:08'!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface |
+
+	interface := self createDefaultInterface.
+	interface after30Minutes. 
+	self
+		should: [interface add: self validBook quantity: 1 toCartIdentifiedAs: self invalidCartId]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ]
+		! !
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:35:14'!
+ERROR!
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:35:27'!
+after30Minutes
+	self shouldBeImplemented.! !
+
+!classDefinition: #RestInterface category: 'TusLibros' stamp: 'NH 6/15/2023 11:36:17'!
+Object subclass: #RestInterface
+	instanceVariableNames: 'authenticationSystem carts catalog lastId merchantProcessor salesBook past30Miutes'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:36:09' prior: 50632047!
+after30Minutes
+	past30Miutes := true! !
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:36:26'!
+ERROR!
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:36:36'!
+exceededTimeErrorDescription
+	self shouldBeImplemented.! !
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:36:54'!
+ERROR!
+!RestInterface methodsFor: 'error description' stamp: 'NH 6/15/2023 11:38:12' prior: 50632069!
+exceededTimeErrorDescription
+	^'time exceeded 30 miutes after last used'! !
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:38:20'!
+FAILURE!
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:39:35' prior: 50631814!
+add: aBook quantity: anAmount toCartIdentifiedAs: aCartId
+
+	| cart |
+	
+	(past30Miutes=True) ifTrue: [^self exceededTimeErrorDescription].
+	cart := carts at: aCartId ifAbsent: [ self signalInvalidCartId ].
+	cart add: anAmount of: aBook ! !
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 11:39:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:39:37'!
+FAILURE!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:39:37'!
+FAILURE!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:39:53'!
+FAILURE!
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:40:45' prior: 50631867!
+initializeAuthenticatingWith: anAuthenticationSystem acceptingItemsOf: aCatalog merchantProcessor: anMP
+
+	authenticationSystem := anAuthenticationSystem.
+	catalog := aCatalog.
+	carts := Dictionary new.
+	lastId := 0.
+	merchantProcessor := anMP.
+	past30Miutes := false.! !
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 11:40:48'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:40:48'!
+FAILURE!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:40:48'!
+FAILURE!
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:41:34' prior: 50632088!
+add: aBook quantity: anAmount toCartIdentifiedAs: aCartId
+
+	| cart |
+	
+	(past30Miutes=True) ifFalse: [^self exceededTimeErrorDescription].
+	cart := carts at: aCartId ifAbsent: [ self signalInvalidCartId ].
+	cart add: anAmount of: aBook ! !
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 11:41:35'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 11:41:35'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 11:41:35'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 11:41:35'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 11:41:35'!
+FAILURE!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 11:41:35'!
+FAILURE!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 11:41:35'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 11:41:35'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 11:41:35'!
+FAILURE!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 11:41:35'!
+FAILURE!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 11:41:35'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 11:41:35'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:41:35'!
+FAILURE!
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:42:10' prior: 50632211!
+add: aBook quantity: anAmount toCartIdentifiedAs: aCartId
+
+	| cart |
+	
+	(past30Miutes=True) ifTrue: [^self exceededTimeErrorDescription].
+	cart := carts at: aCartId ifAbsent: [ self signalInvalidCartId ].
+	cart add: anAmount of: aBook ! !
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 11:42:29'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:42:29'!
+FAILURE!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:42:29'!
+FAILURE!
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:43:36' prior: 50632267!
+add: aBook quantity: anAmount toCartIdentifiedAs: aCartId
+
+	| cart |
+	
+	(past30Miutes=True) ifTrue: [^self error: self exceededTimeErrorDescription].
+	cart := carts at: aCartId ifAbsent: [ self signalInvalidCartId ].
+	cart add: anAmount of: aBook ! !
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 11:43:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:43:37'!
+FAILURE!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:43:37'!
+FAILURE!
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:44:42' prior: 50632326!
+add: aBook quantity: anAmount toCartIdentifiedAs: aCartId
+
+	| cart |
+	
+	(past30Miutes=True) ifTrue: [^ self exceededTimeErrorDescription].
+	cart := carts at: aCartId ifAbsent: [ self signalInvalidCartId ].
+	cart add: anAmount of: aBook ! !
+!RestInterface methodsFor: 'error description' stamp: 'NH 6/15/2023 11:44:52' prior: 50632078!
+exceededTimeErrorDescription
+	^self error: 'time exceeded 30 miutes after last used'! !
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:45:17'!
+ERROR!
+!RestInterface methodsFor: 'error description' stamp: 'NH 6/15/2023 11:45:56' prior: 50632397!
+exceededTimeErrorDescription
+	^'time exceeded 30 miutes after last used'! !
+!RestInterface methodsFor: 'error description' stamp: 'NH 6/15/2023 11:46:41'!
+signalExceededTime
+	^self error: self exceededTimeErrorDescription ! !
+!RestInterface methodsFor: 'error description' stamp: 'NH 6/15/2023 11:46:43' prior: 50632412!
+signalExceededTime
+	^self error: self exceededTimeErrorDescription! !
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:46:57' prior: 50632386!
+add: aBook quantity: anAmount toCartIdentifiedAs: aCartId
+
+	| cart |
+	
+	(past30Miutes=True) ifTrue: [^ self signalExceededTime].
+	cart := carts at: aCartId ifAbsent: [ self signalInvalidCartId ].
+	cart add: anAmount of: aBook ! !
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:47:01' prior: 50632424!
+add: aBook quantity: anAmount toCartIdentifiedAs: aCartId
+
+	| cart |
+	
+	(past30Miutes=True) ifTrue: [self signalExceededTime].
+	cart := carts at: aCartId ifAbsent: [ self signalInvalidCartId ].
+	cart add: anAmount of: aBook ! !
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 11:47:01'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 11:47:01'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 11:47:01'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 11:47:01'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 11:47:01'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 11:47:02'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 11:47:02'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 11:47:02'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 11:47:02'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 11:47:02'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 11:47:02'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 11:47:02'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:47:02'!
+FAILURE!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:47:02'!
+FAILURE!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:47:11'!
+FAILURE!
+
+| interface |
+
+	interface := self createDefaultInterface.
+	interface after30Minutes. 
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: self invalidCartId.!
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:48:09' prior: 50632028!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface |
+
+	interface := self createDefaultInterface.
+	interface after30Minutes. 
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: self invalidCartId.
+	
+	"self
+		should: [interface add: self validBook quantity: 1 toCartIdentifiedAs: self invalidCartId]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ]"
+		! !
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:48:10'!
+ERROR!
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:49:02' prior: 50632504!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface |
+
+	interface := self createDefaultInterface.
+	interface after30Minutes. 
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: self invalidCartId.
+	
+	"self
+		should: [interface add: self validBook quantity: 1 toCartIdentifiedAs: self invalidCartId]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ]"
+		! !
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:49:49' prior: 50632527!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface |
+
+	interface := self createDefaultInterface.
+	interface after30Minutes. 
+	
+	self
+		should: [interface add: self validBook quantity: 1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:49:49' prior: 50632546!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface |
+
+	interface := self createDefaultInterface.
+	interface after30Minutes. 
+	
+	self
+		should: [interface add: self validBook quantity: 1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:49:49' prior: 50632561!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface |
+
+	interface := self createDefaultInterface.
+	interface after30Minutes. 
+	
+	self
+		should: [interface add: self validBook quantity: 1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:49:49' prior: 50632576!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface |
+
+	interface := self createDefaultInterface.
+	interface after30Minutes. 
+	
+	self
+		should: [interface add: self validBook quantity: 1]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:51:55' prior: 50632591!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface |
+
+	interface := self createDefaultInterface.
+	interface after30Minutes. 
+	
+	self
+		should: [interface add: self validBook quantity: 1 toCartIdentifiedAs: self cartId.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:52:42' prior: 50632606!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface after30Minutes. 
+
+	self
+		should: [interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:52:43'!
+FAILURE!
+
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface after30Minutes. 
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId.!
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:53:18' prior: 50632622!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface after30Minutes. 
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId.
+	self
+		should: [interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:53:30' prior: 50632653!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface after30Minutes. 
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId.
+	
+	self
+		should: [interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:53:30'!
+FAILURE!
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:53:36' prior: 50632674!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface after30Minutes. 
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId.
+	
+	"self
+		should: [interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ]."
+		! !
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:53:36'!
+PASSED!
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:54:57' prior: 50632435!
+add: aBook quantity: anAmount toCartIdentifiedAs: aCartId
+
+	| cart |
+	
+	(past30Miutes=true) ifTrue: [self signalExceededTime].
+	cart := carts at: aCartId ifAbsent: [ self signalInvalidCartId ].
+	cart add: anAmount of: aBook ! !
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:55:04'!
+ERROR!
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:55:15' prior: 50632699!
+test13CanNotAddItemToNotCartAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface after30Minutes. 
+	self
+		should: [interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:55:16'!
+PASSED!
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:57:08'!
+test14CanNotListCartAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface after30Minutes. 
+	self
+		should: [interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 11:58:07' prior: 50632850!
+test14CanNotListCartAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId.
+	interface add: self anotherValidBook quantity: 2 toCartIdentifiedAs: cartId.
+	interface after30Minutes. 
+	
+	self
+		should: [interface listCartIdentifiedAs: cartId.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+
+!testRun: #RestInterfaceTest #test14CanNotListCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 11:58:10'!
+FAILURE!
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 12:01:03'!
+checkIfTimeLimitHasBeenExceeded
+
+	^ (past30Miutes=true) ifTrue: [self signalExceededTime]! !
+!RestInterface methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 12:01:03' prior: 50632768!
+add: aBook quantity: anAmount toCartIdentifiedAs: aCartId
+
+	| cart |
+	
+	self checkIfTimeLimitHasBeenExceeded.
+	cart := carts at: aCartId ifAbsent: [ self signalInvalidCartId ].
+	cart add: anAmount of: aBook ! !
+!RestInterface methodsFor: 'operations' stamp: 'NH 6/15/2023 12:01:40' prior: 50631901!
+listCartIdentifiedAs: aCartId
+
+	| cart |
+	self checkIfTimeLimitHasBeenExceeded.
+	cart := carts at: aCartId ifAbsent: [ self signalInvalidCartId ].
+	
+	^cart content! !
+
+!testRun: #RestInterfaceTest #test14CanNotListCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:02:21'!
+PASSED!
+
+!methodRemoval: RestInterface #today stamp: 'NH 6/15/2023 12:03:39'!
+today
+	
+	^DateAndTime now!
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 12:04:15'!
+ERROR!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 12:04:15'!
+ERROR!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test14CanNotListCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:04:15'!
+PASSED!
+!RestInterface methodsFor: 'nil' stamp: 'NH 6/15/2023 12:05:05'!
+today
+	
+	^DateAndTime now! !
+
+!testRun: #RestInterfaceTest #test14CanNotListCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:05:37'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test14CanNotListCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:05:40'!
+PASSED!
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 12:06:00'!
+test14CanNotCheckoutAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId.
+	interface add: self anotherValidBook quantity: 2 toCartIdentifiedAs: cartId.
+	interface after30Minutes. 
+	
+	self
+		should: [interface listCartIdentifiedAs: cartId.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 12:06:10'!
+test15CanNotCheckoutAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId.
+	interface add: self anotherValidBook quantity: 2 toCartIdentifiedAs: cartId.
+	interface after30Minutes. 
+	
+	self
+		should: [interface listCartIdentifiedAs: cartId.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+
+!methodRemoval: RestInterfaceTest #test14CanNotCheckoutAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:06:10'!
+test14CanNotCheckoutAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId.
+	interface add: self anotherValidBook quantity: 2 toCartIdentifiedAs: cartId.
+	interface after30Minutes. 
+	
+	self
+		should: [interface listCartIdentifiedAs: cartId.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		!
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 12:06:43' prior: 50633052!
+test15CanNotCheckoutAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId.
+	interface after30Minutes. 
+	
+	self
+		should: [interface listCartIdentifiedAs: cartId.]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+!RestInterfaceTest methodsFor: 'as yet unclassified' stamp: 'NH 6/15/2023 12:07:04' prior: 50633097!
+test15CanNotCheckoutAfter30MinutesOfInactivity
+
+	| interface cartId |
+
+	interface := self createDefaultInterface.
+	cartId := interface createCartFor: self validUser authenticatedWith: self validUserPassword.
+	interface add: self validBook quantity: 1 toCartIdentifiedAs: cartId.
+	interface after30Minutes. 
+	
+	self
+		should: [interface 
+			checkOutCartIdentifiedAs: cartId 
+			withCreditCardNumbered: '1111222233334444' 
+			ownedBy: 'Juan Perez' 
+			expiringOn: testObjectsFactory notExpiredMonthOfYear]
+		raise: Error - MessageNotUnderstood
+		withExceptionDo: [ :anError | 
+			self assert: anError messageText = interface exceededTimeErrorDescription ].
+		! !
+
+!testRun: #RestInterfaceTest #test15CanNotCheckoutAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:07:06'!
+FAILURE!
+!RestInterface methodsFor: 'operations' stamp: 'NH 6/15/2023 12:07:33' prior: 50631829!
+checkOutCartIdentifiedAs: aCartId withCreditCardNumbered: aCreditCartNumber ownedBy: anOwner expiringOn: anExpirationMonthOfYear
+
+	| cart |
+	self checkIfTimeLimitHasBeenExceeded.
+	cart := carts at: aCartId ifAbsent: [self signalInvalidCartId ].
+	
+	Cashier 
+		toCheckout: cart 
+		charging: (CreditCard expiringOn: anExpirationMonthOfYear) 
+		throught: merchantProcessor 
+		on: self today 
+		registeringOn: salesBook! !
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 12:07:49'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 12:07:49'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test15CanNotCheckoutAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:07:49'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 12:07:49'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test14CanNotListCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test15CanNotCheckoutAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:07:59'!
+PASSED!
+!RestInterface methodsFor: 'operations' stamp: 'NH 6/15/2023 12:12:08'!
+giveCartWith: aCartId
+
+	^ carts at: aCartId ifAbsent: [self signalInvalidCartId ]! !
+!RestInterface methodsFor: 'operations' stamp: 'NH 6/15/2023 12:12:08' prior: 50633145!
+checkOutCartIdentifiedAs: aCartId withCreditCardNumbered: aCreditCartNumber ownedBy: anOwner expiringOn: anExpirationMonthOfYear
+
+	| cart |
+	self checkIfTimeLimitHasBeenExceeded.
+	cart := self giveCartWith: aCartId.
+	
+	Cashier 
+		toCheckout: cart 
+		charging: (CreditCard expiringOn: anExpirationMonthOfYear) 
+		throught: merchantProcessor 
+		on: self today 
+		registeringOn: salesBook! !
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test14CanNotListCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test15CanNotCheckoutAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:12:42'!
+PASSED!
+!RestInterface methodsFor: 'operations' stamp: 'NH 6/15/2023 12:13:03' prior: 50632911!
+listCartIdentifiedAs: aCartId
+
+	| cart |
+	self checkIfTimeLimitHasBeenExceeded.
+	cart := self giveCartWith: aCartId.
+	
+	^cart content! !
+
+!testRun: #RestInterfaceTest #test01CanCreateCartWithValidUserAndPassword stamp: 'NH 6/15/2023 12:13:03'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test02CanNotCreateCartWithInvalidUser stamp: 'NH 6/15/2023 12:13:03'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test03CanNotCreateCartWithInvalidPassword stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test04CanAddItemsToACreatedCart stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test05CanNotAddItemToNotCreatedCart stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test06CanNotAddItemNotSellByTheStore stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test07ListCartOfAnEmptyCartReturnsAnEmptyBag stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test08CanNotListCartOfInvalidCartId stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test10CanCheckoutACart stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test11CanNotCheckoutANotCreatedCart stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test12CanNotCheckoutAnEmptyCart stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test13CanNotAddItemToNotCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test14CanNotListCartAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+!testRun: #RestInterfaceTest #test15CanNotCheckoutAfter30MinutesOfInactivity stamp: 'NH 6/15/2023 12:13:04'!
+PASSED!
+
+----QUIT----(15 June 2023 12:35:07) CuisUniversity-5832.image priorSource: 9611845!
