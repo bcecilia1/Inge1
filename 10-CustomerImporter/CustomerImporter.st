@@ -53,40 +53,18 @@ assertQuantityOfCustomerIsTwo
 
 	^ self assert: 2 equals: (session selectAllOfType: Customer) size! !
 
-!ImportTest methodsFor: 'as yet unclassified' stamp: 'cb 6/24/2023 21:56:02'!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'cb 6/25/2023 20:34:41'!
 importCustomers
+	(CustomerImporter takeInformationFor: session of: self inputFile) evaluate! !
 
-	"
-	self importCustomers
-	"
-	| inputStream  newCustomer line |
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'cb 6/25/2023 20:30:10'!
+inputFile
 
-	inputStream := UniFileStream new open: 'input.txt' forWrite: false.
-
-	line := inputStream nextLine.
-	[ line notNil ] whileTrue: [
-		(line beginsWith: 'C') ifTrue: [ | customerData |
-			customerData := line findTokens: $,.
-			newCustomer := Customer new.
-			newCustomer firstName: customerData second.
-			newCustomer lastName: customerData third.
-			newCustomer identificationType: customerData fourth.
-			newCustomer identificationNumber: customerData fifth.
-			session persist: newCustomer ].
-
-		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
-			addressData := line findTokens: $,.
-			newAddress := Address new.
-			newCustomer addAddress: newAddress.
-			newAddress streetName: addressData second.
-			newAddress streetNumber: addressData third asNumber .
-			newAddress town: addressData fourth.
-			newAddress zipCode: addressData fifth asNumber .
-			newAddress province: addressData sixth ].
-
-		line := inputStream nextLine. ].
-
-	inputStream close.
+	^'C,Pepe,Sanchez,D,22333444
+A,San Martin,3322,Olivos,1636,BsAs
+A,Maipu,888,Florida,1122,Buenos Aires
+C,Juan,Perez,C,23-25666777-9
+A,Alem,1122,CABA,1001,CABA'
 	! !
 
 !ImportTest methodsFor: 'as yet unclassified' stamp: 'cb 6/24/2023 22:32:14'!
@@ -243,6 +221,66 @@ initialize
 
 	super initialize.
 	addresses := OrderedCollection new.! !
+
+
+!classDefinition: #CustomerImporter category: 'CustomerImporter'!
+Object subclass: #CustomerImporter
+	instanceVariableNames: 'currentSession fileToRead'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CustomerImporter'!
+
+!CustomerImporter methodsFor: 'initialization' stamp: 'cb 6/25/2023 20:34:27'!
+initializeTakeInformationFor: aSession of: aFile
+	currentSession := aSession.
+	fileToRead := aFile.! !
+
+
+!CustomerImporter methodsFor: 'evaluating' stamp: 'cb 6/25/2023 20:35:11'!
+evaluate
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line  |
+ 
+	inputStream := ReadStream on: fileToRead.
+
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			currentSession persist: newCustomer ].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newCustomer addAddress: newAddress.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth ].
+
+		line := inputStream nextLine. ].
+
+	inputStream close.
+	! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'CustomerImporter class' category: 'CustomerImporter'!
+CustomerImporter class
+	instanceVariableNames: ''!
+
+!CustomerImporter class methodsFor: 'instance creation' stamp: 'cb 6/25/2023 20:34:27'!
+takeInformationFor: aSession of: aFile
+	^self new initializeTakeInformationFor: aSession of: aFile! !
 
 
 !classDefinition: #DataBaseSession category: 'CustomerImporter'!
